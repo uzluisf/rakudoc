@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>role Metamodel::RolePunning</title>
+        <meta charset="UTF-8" />
+        <style>
+        kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+        samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+        u { text-decoration: none }
+        .nested {
+            margin-left: 3em;
+        }
+        aside, u { opacity: 0.7 }
+        a[id^="fn-"]:target { background: #ff0 }
+        </style>
+        
+        
+        <meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<noscript> <style> #search { visibility: hidden; } </style> </noscript>
+
+    </head>
+    <body class="pod">
+    <div id="___top"></div>
+    <div id="top" class="pretty-box white">
+    <header class="grid">
+        <div id="logo">
+            <a href="/"><img src="images/Camelia.svg" alt="»ö«" id="camelia"/></a>
+        </div>
+   
+        <div class="menu">
+          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
+        </div>
+
+    <div id="search" class="ui-widget">
+        <div class="white">
+          <input
+            placeholder="Loading..."
+            id="query"
+            accesskey="f"
+            title="Enter term to search for (hit Esc to focus)"
+          />
+        </div>
+        <p id="not-found-message">
+          Not in Index (<a href="" id="try-web-search">try site search</a>)
+        </p>
+       </div>
+
+    </div>
+</div>
+<!-- please make sure these two CAPITALIZED variables stay there -->
+
+<div id="content" class="pretty-box white content__type_Metamodel__RolePunning">
+  
+      <div align="right">
+        <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/Metamodel::RolePunning.pod6'">
+        <svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pencil" fill="#000000">
+            <path d="M0,12 L0,15 L3,15 L11,7 L8,4 L0,12 L0,12 Z M3,14 L1,14 L1,12 L2,12 L2,13 L3,13 L3,14 L3,14 Z M13.3,4.7 L12,6 L9,3 L10.3,1.7 C10.69,1.31 11.32,1.31 11.71,1.7 L13.3,3.29 C13.69,3.68 13.69,4.31 13.3,4.7 L13.3,4.7 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
+
+        </button>
+      </div>
+
+    <h1 class='title'>role Metamodel::RolePunning</h1>
+    <p class='subtitle'>Metaobject that supports punning of roles.</p>
+    <nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+                          <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Type_Graph">Type Graph</a></td></tr>
+ 
+</table>
+</nav>
+
+    <div class="pod-body">
+    <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Perl6::Metamodel::RolePunning</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span><span>}</span></span></span></span></div></pre><p><em>Warning</em>: this role is part of the Rakudo implementation, and is not a part of the language specification.</p>
+<p>Implements the ability to create objects from <code>Role</code>s without the intermediate need to use a class. Not intended to be used directly (will in fact error if it&#39;s <code>use</code>d), but via punning of roles, as below. This is also Rakudo specific and not part of the spec.</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>A</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>b</span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control flowcontrol perl6fe"><span>return</span></span><span>&nbsp;</span><span class="string quoted double perl6fe"><span class="punctuation definition string begin perl6fe"><span>&quot;</span></span><span>punned</span><span class="punctuation definition string end perl6fe"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>}</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>a</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>A</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>new</span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>a</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>b</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«punned␤»</span><span>&nbsp;</span></span></span></div></pre><h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
+<figure>
+  <figcaption>Type relations for <code>Metamodel::RolePunning</code></figcaption>
+  <svg width="2377pt" height="1578pt"
+ viewBox="0.00 0.00 2377.21 1577.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1573.52)">
+<title>perl6&#45;type&#45;graph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1573.52 2373.21,-1573.52 2373.21,4 -4,4"/>
+<!-- Metamodel::RolePunning -->
+<g id="node1" class="node">
+<title>Metamodel::RolePunning</title>
+<g id="a_node1"><a xlink:href="/type/Metamodel::RolePunning" xlink:title="Metamodel::RolePunning">
+<ellipse fill="none" stroke="#6666ff" cx="1039.55" cy="-1069.18" rx="122.68" ry="18"/>
+<text text-anchor="middle" x="1039.55" y="-1065.48" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::RolePunning</text>
+</a>
+</g>
+</g>
+<!-- Mu -->
+<g id="node2" class="node">
+<title>Mu</title>
+<g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
+<ellipse fill="none" stroke="#000000" cx="1767.93" cy="-1476.55" rx="27" ry="18"/>
+<text text-anchor="middle" x="1767.93" y="-1472.85" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+</a>
+</g>
+</g>
+<!-- Any -->
+<g id="node3" class="node">
+<title>Any</title>
+<g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
+<ellipse fill="none" stroke="#000000" cx="1324.16" cy="-1070.89" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="1324.16" y="-1067.19" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+</a>
+</g>
+</g>
+<!-- Any&#45;&gt;Mu -->
+<g id="edge1" class="edge">
+<title>Any&#45;&gt;Mu</title>
+<path fill="none" stroke="#000000" d="M1340.48,-1085.81C1407.91,-1147.44 1664.94,-1382.4 1744.39,-1455.03"/>
+<polygon fill="#000000" stroke="#000000" points="1742.19,-1457.76 1751.93,-1461.93 1746.91,-1452.6 1742.19,-1457.76"/>
+</g>
+<!-- Metamodel::Naming -->
+<g id="node4" class="node">
+<title>Metamodel::Naming</title>
+<g id="a_node4"><a xlink:href="/type/Metamodel::Naming" xlink:title="Metamodel::Naming">
+<ellipse fill="none" stroke="#6666ff" cx="1303.36" cy="-247.71" rx="101.28" ry="18"/>
+<text text-anchor="middle" x="1303.36" y="-244.01" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Naming</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Documenting -->
+<g id="node5" class="node">
+<title>Metamodel::Documenting</title>
+<g id="a_node5"><a xlink:href="/type/Metamodel::Documenting" xlink:title="Metamodel::Documenting">
+<ellipse fill="none" stroke="#6666ff" cx="544.64" cy="-1234.02" rx="126.98" ry="18"/>
+<text text-anchor="middle" x="544.64" y="-1230.32" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Documenting</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Versioning -->
+<g id="node6" class="node">
+<title>Metamodel::Versioning</title>
+<g id="a_node6"><a xlink:href="/type/Metamodel::Versioning" xlink:title="Metamodel::Versioning">
+<ellipse fill="none" stroke="#6666ff" cx="316.95" cy="-1097.23" rx="114.28" ry="18"/>
+<text text-anchor="middle" x="316.95" y="-1093.53" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Versioning</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MethodContainer -->
+<g id="node7" class="node">
+<title>Metamodel::MethodContainer</title>
+<g id="a_node7"><a xlink:href="/type/Metamodel::MethodContainer" xlink:title="Metamodel::MethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="143.64" cy="-594.15" rx="143.77" ry="18"/>
+<text text-anchor="middle" x="143.64" y="-590.45" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::PrivateMethodContainer -->
+<g id="node8" class="node">
+<title>Metamodel::PrivateMethodContainer</title>
+<g id="a_node8"><a xlink:href="/type/Metamodel::PrivateMethodContainer" xlink:title="Metamodel::PrivateMethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="964.91" cy="-23.72" rx="174.67" ry="18"/>
+<text text-anchor="middle" x="964.91" y="-20.02" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::PrivateMethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MultiMethodContainer -->
+<g id="node9" class="node">
+<title>Metamodel::MultiMethodContainer</title>
+<g id="a_node9"><a xlink:href="/type/Metamodel::MultiMethodContainer" xlink:title="Metamodel::MultiMethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="227.88" cy="-330.39" rx="165.97" ry="18"/>
+<text text-anchor="middle" x="227.88" y="-326.69" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MultiMethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::AttributeContainer -->
+<g id="node10" class="node">
+<title>Metamodel::AttributeContainer</title>
+<g id="a_node10"><a xlink:href="/type/Metamodel::AttributeContainer" xlink:title="Metamodel::AttributeContainer">
+<ellipse fill="none" stroke="#6666ff" cx="631.91" cy="-18" rx="150.27" ry="18"/>
+<text text-anchor="middle" x="631.91" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::AttributeContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::RoleContainer -->
+<g id="node11" class="node">
+<title>Metamodel::RoleContainer</title>
+<g id="a_node11"><a xlink:href="/type/Metamodel::RoleContainer" xlink:title="Metamodel::RoleContainer">
+<ellipse fill="none" stroke="#6666ff" cx="413.16" cy="-125.59" rx="129.98" ry="18"/>
+<text text-anchor="middle" x="413.16" y="-121.89" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::RoleContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MultipleInheritance -->
+<g id="node12" class="node">
+<title>Metamodel::MultipleInheritance</title>
+<g id="a_node12"><a xlink:href="/type/Metamodel::MultipleInheritance" xlink:title="Metamodel::MultipleInheritance">
+<ellipse fill="none" stroke="#6666ff" cx="177.53" cy="-866.08" rx="153.27" ry="18"/>
+<text text-anchor="middle" x="177.53" y="-862.38" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MultipleInheritance</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Stashing -->
+<g id="node13" class="node">
+<title>Metamodel::Stashing</title>
+<g id="a_node13"><a xlink:href="/type/Metamodel::Stashing" xlink:title="Metamodel::Stashing">
+<ellipse fill="none" stroke="#6666ff" cx="1230.57" cy="-439.37" rx="105.88" ry="18"/>
+<text text-anchor="middle" x="1230.57" y="-435.67" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Stashing</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::TypePretense -->
+<g id="node14" class="node">
+<title>Metamodel::TypePretense</title>
+<g id="a_node14"><a xlink:href="/type/Metamodel::TypePretense" xlink:title="Metamodel::TypePretense">
+<ellipse fill="none" stroke="#6666ff" cx="1171.04" cy="-882.02" rx="126.18" ry="18"/>
+<text text-anchor="middle" x="1171.04" y="-878.32" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::TypePretense</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ParametricRoleHOW -->
+<g id="node15" class="node">
+<title>Metamodel::ParametricRoleHOW</title>
+<g id="a_node15"><a xlink:href="/type/Metamodel::ParametricRoleHOW" xlink:title="Metamodel::ParametricRoleHOW">
+<ellipse fill="none" stroke="#000000" cx="737.25" cy="-629.69" rx="157.07" ry="18"/>
+<text text-anchor="middle" x="737.25" y="-625.99" font-family="FreeSans" font-size="14.00" fill="#000000">Metamodel::ParametricRoleHOW</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::RolePunning -->
+<g id="edge16" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::RolePunning</title>
+<path fill="none" stroke="#6666ff" d="M749.66,-647.74C796.84,-716.33 965.16,-961.03 1021.23,-1042.54"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1018.65,-1044.97 1027.2,-1051.22 1024.42,-1041 1018.65,-1044.97"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Any -->
+<g id="edge2" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M759.26,-647.83C829.45,-705.64 1043.36,-881.83 1043.36,-881.83 1043.36,-881.83 1224.66,-1003.9 1295.9,-1051.86"/>
+<polygon fill="#000000" stroke="#000000" points="1294.17,-1054.91 1304.42,-1057.59 1298.08,-1049.11 1294.17,-1054.91"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Naming -->
+<g id="edge5" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Naming</title>
+<path fill="none" stroke="#6666ff" d="M763.79,-611.78C856.4,-549.29 1165.18,-340.95 1268.98,-270.91"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1271.19,-273.64 1277.52,-265.14 1267.28,-267.84 1271.19,-273.64"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Documenting -->
+<g id="edge6" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Documenting</title>
+<path fill="none" stroke="#6666ff" d="M731.48,-647.78C704.07,-733.79 586.85,-1101.61 553.51,-1206.19"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="550.09,-1205.42 550.38,-1216.01 556.76,-1207.54 550.09,-1205.42"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Versioning -->
+<g id="edge7" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Versioning</title>
+<path fill="none" stroke="#6666ff" d="M721.03,-647.74C656.21,-719.84 415.64,-987.45 339.92,-1071.68"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="337.21,-1069.47 333.12,-1079.24 342.41,-1074.15 337.21,-1069.47"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MethodContainer -->
+<g id="edge8" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M597.7,-621.34C503.04,-615.67 378.38,-608.2 283.63,-602.53"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="283.59,-599.02 273.4,-601.92 283.17,-606.01 283.59,-599.02"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::PrivateMethodContainer -->
+<g id="edge9" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::PrivateMethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M744.06,-611.56C776.5,-525.23 915.31,-155.76 954.54,-51.32"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="957.88,-52.38 958.12,-41.79 951.33,-49.92 957.88,-52.38"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MultiMethodContainer -->
+<g id="edge10" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MultiMethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M706.91,-611.87C619.06,-560.25 364.51,-410.67 266.75,-353.23"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="268.46,-350.17 258.06,-348.12 264.91,-356.21 268.46,-350.17"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::AttributeContainer -->
+<g id="edge11" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::AttributeContainer</title>
+<path fill="none" stroke="#6666ff" d="M734.09,-611.39C719.1,-524.33 654.99,-152.03 636.76,-46.18"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="640.19,-45.5 635.05,-36.24 633.3,-46.68 640.19,-45.5"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::RoleContainer -->
+<g id="edge12" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::RoleContainer</title>
+<path fill="none" stroke="#6666ff" d="M725.52,-611.45C676.53,-535.26 488.11,-242.17 430.19,-152.09"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="433.05,-150.06 424.7,-143.54 427.16,-153.84 433.05,-150.06"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MultipleInheritance -->
+<g id="edge13" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::MultipleInheritance</title>
+<path fill="none" stroke="#6666ff" d="M696.09,-647.08C595.61,-689.51 338.01,-798.3 228.27,-844.65"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="226.6,-841.56 218.75,-848.67 229.32,-848.01 226.6,-841.56"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Stashing -->
+<g id="edge14" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::Stashing</title>
+<path fill="none" stroke="#6666ff" d="M782.33,-612.3C873.83,-577 1080.87,-497.12 1178.18,-459.58"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1179.46,-462.84 1187.53,-455.98 1176.94,-456.31 1179.46,-462.84"/>
+</g>
+<!-- Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::TypePretense -->
+<g id="edge15" class="edge">
+<title>Metamodel::ParametricRoleHOW&#45;&gt;Metamodel::TypePretense</title>
+<path fill="none" stroke="#6666ff" d="M767.75,-647.44C844.69,-692.19 1046.6,-809.64 1132,-859.31"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1130.45,-862.47 1140.86,-864.47 1133.97,-856.41 1130.45,-862.47"/>
+</g>
+<!-- Metamodel::BoolificationProtocol -->
+<g id="node16" class="node">
+<title>Metamodel::BoolificationProtocol</title>
+<g id="a_node16"><a xlink:href="/type/Metamodel::BoolificationProtocol" xlink:title="Metamodel::BoolificationProtocol">
+<ellipse fill="none" stroke="#6666ff" cx="2211.93" cy="-585.98" rx="157.07" ry="18"/>
+<text text-anchor="middle" x="2211.93" y="-582.28" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::BoolificationProtocol</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW -->
+<g id="node17" class="node">
+<title>Metamodel::ParametricRoleGroupHOW</title>
+<g id="a_node17"><a xlink:href="/type/Metamodel::ParametricRoleGroupHOW" xlink:title="Metamodel::ParametricRoleGroupHOW">
+<ellipse fill="none" stroke="#000000" cx="1655.35" cy="-710.33" rx="184.67" ry="18"/>
+<text text-anchor="middle" x="1655.35" y="-706.63" font-family="FreeSans" font-size="14.00" fill="#000000">Metamodel::ParametricRoleGroupHOW</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::RolePunning -->
+<g id="edge20" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::RolePunning</title>
+<path fill="none" stroke="#6666ff" d="M1624.82,-728.13C1522.5,-787.75 1191.88,-980.42 1078.29,-1046.6"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1076.43,-1043.64 1069.55,-1051.7 1079.95,-1049.69 1076.43,-1043.64"/>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Any -->
+<g id="edge3" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M1638.47,-728.71C1583.12,-788.97 1407.13,-980.56 1345.63,-1047.52"/>
+<polygon fill="#000000" stroke="#000000" points="1342.9,-1045.32 1338.71,-1055.05 1348.05,-1050.05 1342.9,-1045.32"/>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::Naming -->
+<g id="edge17" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::Naming</title>
+<path fill="none" stroke="#6666ff" d="M1641.55,-692.2C1587.12,-620.65 1387.11,-357.78 1323.16,-273.73"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1325.91,-271.56 1317.06,-265.72 1320.33,-275.8 1325.91,-271.56"/>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::Stashing -->
+<g id="edge18" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::Stashing</title>
+<path fill="none" stroke="#6666ff" d="M1627.15,-692.35C1552.42,-644.68 1349.35,-515.14 1266.49,-462.29"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1268.24,-459.26 1257.93,-456.83 1264.48,-465.16 1268.24,-459.26"/>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::TypePretense -->
+<g id="edge19" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::TypePretense</title>
+<path fill="none" stroke="#6666ff" d="M1606.25,-727.74C1515.92,-759.76 1323.91,-827.83 1228.01,-861.83"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1226.74,-858.57 1218.48,-865.21 1229.08,-865.16 1226.74,-858.57"/>
+</g>
+<!-- Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::BoolificationProtocol -->
+<g id="edge21" class="edge">
+<title>Metamodel::ParametricRoleGroupHOW&#45;&gt;Metamodel::BoolificationProtocol</title>
+<path fill="none" stroke="#6666ff" d="M1729.26,-693.82C1833.21,-670.6 2021.94,-628.43 2130.04,-604.28"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="2130.93,-607.67 2139.92,-602.07 2129.4,-600.84 2130.93,-607.67"/>
+</g>
+<!-- Metamodel::CurriedRoleHOW -->
+<g id="node18" class="node">
+<title>Metamodel::CurriedRoleHOW</title>
+<g id="a_node18"><a xlink:href="/type/Metamodel::CurriedRoleHOW" xlink:title="Metamodel::CurriedRoleHOW">
+<ellipse fill="none" stroke="#000000" cx="1215.37" cy="-1551.52" rx="142.17" ry="18"/>
+<text text-anchor="middle" x="1215.37" y="-1547.82" font-family="FreeSans" font-size="14.00" fill="#000000">Metamodel::CurriedRoleHOW</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::CurriedRoleHOW&#45;&gt;Metamodel::RolePunning -->
+<g id="edge22" class="edge">
+<title>Metamodel::CurriedRoleHOW&#45;&gt;Metamodel::RolePunning</title>
+<path fill="none" stroke="#6666ff" d="M1208.8,-1533.49C1182.14,-1460.37 1081.98,-1185.57 1049.67,-1096.93"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1052.87,-1095.49 1046.16,-1087.3 1046.29,-1097.89 1052.87,-1095.49"/>
+</g>
+<!-- Metamodel::CurriedRoleHOW&#45;&gt;Any -->
+<g id="edge4" class="edge">
+<title>Metamodel::CurriedRoleHOW&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M1219.5,-1533.27C1236.08,-1460.02 1297.84,-1187.18 1317.86,-1098.75"/>
+<polygon fill="#000000" stroke="#000000" points="1321.29,-1099.43 1320.08,-1088.9 1314.46,-1097.88 1321.29,-1099.43"/>
+</g>
+<!-- Metamodel::CurriedRoleHOW&#45;&gt;Metamodel::TypePretense -->
+<g id="edge23" class="edge">
+<title>Metamodel::CurriedRoleHOW&#45;&gt;Metamodel::TypePretense</title>
+<path fill="none" stroke="#6666ff" d="M1214.16,-1533.27C1208.03,-1440.78 1180.43,-1023.91 1172.93,-910.55"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1176.4,-910.01 1172.25,-900.26 1169.41,-910.47 1176.4,-910.01"/>
+</g>
+</g>
+</svg>
+
+  <p class="fallback">
+    <a
+      rel="alternate"
+      href="/images/type-graph-Metamodel%3A%3ARolePunning.svg"
+      type="image/svg+xml"
+      >Expand above chart</a
+    >
+  </p>
+</figure>
+
+    </div>
+    
+    </div>
+<footer class="pretty-box yellow">
+  <p>Generated from <a href="https://github.com/perl6/doc/blob/master/doc/Type/Metamodel::RolePunning.pod6">/type/Metamodel::RolePunning</a>.</p>
+  <p>This is a work in progress to document Raku (formerly known as Perl 6), and
+      known to be incomplete.</p>
+
+  <p><a
+          href="https://github.com/Raku/doc/blob/master/CONTRIBUTING.md#reporting-bugs">Please report any issues</a>.Your contribution is appreciated.</p>
+
+  <p> This documentation is provided under the terms of the
+      <a href="https://raw.githubusercontent.com/Raku/doc/master/LICENSE">Artistic License 2.0</a>.
+      The Camelia image is <a href="https://raw.githubusercontent.com/perl6/mu/master/misc/camelia.txt"
+        >copyright © 2009 by Larry Wall.</a>
+      <!-- CREDITS -->
+      <!--External Link Image by Zapyon, CCA-SA 4.0. Derived from Wikimedia Foundation https://commons.wikimedia.org/wiki/File:External-link-04-bold-12x12.svg -->
+
+  </p>
+</footer>
+
+<script type="text/javascript" src="js/app.js?v=1"></script>
+<script type="text/javascript" src="js/search.js?v=3"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (!location.hash || location.hash === "#___top") {
+      $('query').focus();
+    }
+  });
+</script>
+
+    </body>
+</html>

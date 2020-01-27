@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>role Metamodel::Mixins</title>
+        <meta charset="UTF-8" />
+        <style>
+        kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+        samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+        u { text-decoration: none }
+        .nested {
+            margin-left: 3em;
+        }
+        aside, u { opacity: 0.7 }
+        a[id^="fn-"]:target { background: #ff0 }
+        </style>
+        
+        
+        <meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<noscript> <style> #search { visibility: hidden; } </style> </noscript>
+
+    </head>
+    <body class="pod">
+    <div id="___top"></div>
+    <div id="top" class="pretty-box white">
+    <header class="grid">
+        <div id="logo">
+            <a href="/"><img src="images/Camelia.svg" alt="»ö«" id="camelia"/></a>
+        </div>
+   
+        <div class="menu">
+          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
+        </div>
+
+    <div id="search" class="ui-widget">
+        <div class="white">
+          <input
+            placeholder="Loading..."
+            id="query"
+            accesskey="f"
+            title="Enter term to search for (hit Esc to focus)"
+          />
+        </div>
+        <p id="not-found-message">
+          Not in Index (<a href="" id="try-web-search">try site search</a>)
+        </p>
+       </div>
+
+    </div>
+</div>
+<!-- please make sure these two CAPITALIZED variables stay there -->
+
+<div id="content" class="pretty-box white content__type_Metamodel__Mixins">
+  
+      <div align="right">
+        <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/Metamodel::Mixins.pod6'">
+        <svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pencil" fill="#000000">
+            <path d="M0,12 L0,15 L3,15 L11,7 L8,4 L0,12 L0,12 Z M3,14 L1,14 L1,12 L2,12 L2,13 L3,13 L3,14 L3,14 Z M13.3,4.7 L12,6 L9,3 L10.3,1.7 C10.69,1.31 11.32,1.31 11.71,1.7 L13.3,3.29 C13.69,3.68 13.69,4.31 13.3,4.7 L13.3,4.7 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
+
+        </button>
+      </div>
+
+    <h1 class='title'>role Metamodel::Mixins</h1>
+    <p class='subtitle'>Metaobject for generating mixins</p>
+    <nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+                                                                                                                                                                     <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Methods">Methods</a></td></tr>
+ <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#method_set_is_mixin">method set_is_mixin</a></td></tr>
+     <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#method_is_mixin">method is_mixin</a></td></tr>
+           <tr class="toc-level-2"><td class="toc-number">1.3</td><td class="toc-text"><a href="#method_set_mixin_attribute">method set_mixin_attribute</a></td></tr>
+         <tr class="toc-level-2"><td class="toc-number">1.4</td><td class="toc-text"><a href="#method_mixin_attribute">method mixin_attribute</a></td></tr>
+       <tr class="toc-level-2"><td class="toc-number">1.5</td><td class="toc-text"><a href="#method_setup_mixin_cache">method setup_mixin_cache</a></td></tr>
+         <tr class="toc-level-2"><td class="toc-number">1.6</td><td class="toc-text"><a href="#method_flush_cache">method flush_cache</a></td></tr>
+   <tr class="toc-level-2"><td class="toc-number">1.7</td><td class="toc-text"><a href="#method_generate_mixin">method generate_mixin</a></td></tr>
+            <tr class="toc-level-2"><td class="toc-number">1.8</td><td class="toc-text"><a href="#method_mixin">method mixin</a></td></tr>
+                      <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Type_Graph">Type Graph</a></td></tr>
+ 
+</table>
+</nav>
+
+    <div class="pod-body">
+    <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Metamodel::Mixins</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span><span>}</span></span></span></span></div></pre><p><em>Warning</em>: this role is part of the Rakudo implementation, and is not a part of the language specification.</p>
+<p>Using the <code>does</code> and <code>but</code> infix operators, <em>mixins</em> of a base object and an arbitrary number of roles (or another object) can be created. These are objects whose types have properties of both operands&#39; types. Respectively, these rebless the existing object to have the generated mixin type and clone said object with said mixin type:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>class</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Billboard</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage modifier declarator perl6fe"><span>has</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>.</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>is</span></span><span>&nbsp;</span><span class="entity name type trait perl6fe"><span>required</span></span><span>;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>vandalism</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>...</span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator multi perl6fe"><span>multi</span></span><span>&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>Str</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>!</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Vandalized</span></span></span><span>[</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>]&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>vandalism</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator multi perl6fe"><span>multi</span></span><span>&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>Str</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta heredoc perl6fe"><span class="string quoted construct perl6fe"><span>Q</span></span><span class="support function adverb perl6fe"><span>:to</span></span><span>/</span><span class="entity other attribute-name heredoc delimiter perl6fe"><span>ADVERTISEMENT</span></span><span>/</span><span class="meta heredoc continuation perl6fe"><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>chomp</span></span><span>;</span><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>Brilliant&nbsp;Solutions:&nbsp;sane&nbsp;and&nbsp;knowledgeable&nbsp;consultants.</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>We&nbsp;have&nbsp;been&nbsp;providing&nbsp;excellent&nbsp;services&nbsp;since&nbsp;1972!</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="entity other attribute-name heredoc delimiter perl6fe"><span>ADVERTISEMENT</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta heredoc perl6fe"><span class="string quoted construct perl6fe"><span>Q</span></span><span class="support function adverb perl6fe"><span>:to</span></span><span>/</span><span class="entity other attribute-name heredoc delimiter perl6fe"><span>VANDALISM</span></span><span>/</span><span class="meta heredoc continuation perl6fe"><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>chomp</span></span><span>;</span><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;s&nbsp;ne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>We&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;ee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;e&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="entity other attribute-name heredoc delimiter perl6fe"><span>VANDALISM</span></span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Billboard</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>.=</span></span><span>&nbsp;</span><span class="support function perl6fe"><span>new</span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Billboard</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>draft</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>but</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Billboard</span></span><span>::</span><span class="routine name perl6fe"><span>Vandalized</span></span><span>[</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>];</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>draft</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>does</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Billboard</span></span><span>::</span><span class="routine name perl6fe"><span>Vandalized</span></span><span>[</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>];</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div></pre><p>Optionally, mixins may have a <em>mixin attribute</em>. This occurs when only one role having only one public attribute gets mixed into an object. If a mixin attribute exists on a resulting mixin&#39;s type, it can be initialized by <code>but</code> or <code>does</code> using its <code>value</code> named parameter. This makes it possible for mixins to not only have composable methods, but composable state as well. Using this feature, the example above can be rewritten so billboards can be vandalized more than once without needing to generate more mixins by making <code>Billboard::Vandalism</code>&#39;s <code>$vandalism</code> named parameter an <a href="/type/Attribute#index-entry-trait_is_rw_(Attribute)-trait_is_rw">rw</a> mixin attribute instead:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>class</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Billboard</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage modifier declarator perl6fe"><span>has</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>.</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>is</span></span><span>&nbsp;</span><span class="entity name type trait perl6fe"><span>required</span></span><span>;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>vandalism</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>...</span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator multi perl6fe"><span>multi</span></span><span>&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>Str</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>!</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Vandalized</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage modifier declarator perl6fe"><span>has</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>.</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>is</span></span><span>&nbsp;</span><span class="entity name type trait perl6fe"><span>required</span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>is</span></span><span>&nbsp;</span><span class="entity name type trait perl6fe"><span>rw</span></span><span>;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type declarator multi perl6fe"><span>multi</span></span><span>&nbsp;</span><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>Str</span></span><span>(::</span><span class="keyword operator generic perl6fe"><span>?</span></span><span class="routine name perl6fe"><span>CLASS</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>--&gt;</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>)&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>!</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta heredoc perl6fe"><span class="string quoted construct perl6fe"><span>Q</span></span><span class="support function adverb perl6fe"><span>:to</span></span><span>/</span><span class="entity other attribute-name heredoc delimiter perl6fe"><span>ADVERTISEMENT</span></span><span>/</span><span class="meta heredoc continuation perl6fe"><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>chomp</span></span><span>;</span><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>Brilliant&nbsp;Solutions:&nbsp;sane&nbsp;and&nbsp;knowledgeable&nbsp;consultants.</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>We&nbsp;have&nbsp;been&nbsp;providing&nbsp;excellent&nbsp;services&nbsp;since&nbsp;1972!</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="entity other attribute-name heredoc delimiter perl6fe"><span>ADVERTISEMENT</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta heredoc perl6fe"><span class="string quoted construct perl6fe"><span>Q</span></span><span class="support function adverb perl6fe"><span>:to</span></span><span>/</span><span class="entity other attribute-name heredoc delimiter perl6fe"><span>VANDALISM</span></span><span>/</span><span class="meta heredoc continuation perl6fe"><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>chomp</span></span><span>;</span><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;s&nbsp;ne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="string quoted q heredoc perl6fe"><span>We&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;ee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;e&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta heredoc perl6fe"><span class="entity other attribute-name heredoc delimiter perl6fe"><span>VANDALISM</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span class="meta adverb definedness perl6fe"><span class="keyword operator adverb perl6fe"><span>:</span></span><span class="keyword other special-method definedness perl6fe"><span>D</span></span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>false-alarm</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="string quoted q operator perl6fe"><span>Qs</span></span><span class="punctuation definition string perl6fe"><span>:</span></span><span class="string quoted q any quote perl6fe"><span>to/FALSE-ALARM/.chomp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>$vandalism</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>⬆️&nbsp;This&nbsp;is&nbsp;just&nbsp;one&nbsp;of&nbsp;our&nbsp;namesakes&nbsp;we&nbsp;at&nbsp;Brilliant&nbsp;Solutions&nbsp;have&nbsp;been</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>helping&nbsp;people&nbsp;like&nbsp;you&nbsp;create&nbsp;since&nbsp;1972!</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>FALSE-ALARM</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="string quoted q any quote perl6fe"><span>my&nbsp;Billboard</span></span><span class="punctuation definition string perl6fe"><span>:</span></span><span class="routine name perl6fe"><span>D</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>.=</span></span><span>&nbsp;</span><span class="support function perl6fe"><span>new</span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>advertisement</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>does</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Billboard</span></span><span>::</span><span class="routine name perl6fe"><span>Vandalized</span></span><span>&nbsp;</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="routine name perl6fe"><span>value</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>);</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>vandalism</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>vandalism</span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>false-alarm</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>billboard</span></span></span><span>&nbsp;</span><span class="keyword operator word perl6fe"><span>eq</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>false-alarm</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span><span>&nbsp;</span></span></span></div></pre><p><code>Metamodel::Mixins</code> is the metarole that implements the behavior of said mixins. Formally, mixins are objects whose HOW inherits from a base composable metaobject and applies an arbitrary number of roles, resulting in an object whose HOW has a combination of their properties. In particular, the metamethods this metarole provides are used to implement the behavior of the <code>but</code> and <code>does</code> infix operators, but these also support introspection related to mixins. For example, the work done by <code>but</code> when invoked with an object and one role can be written explicitly using the <code>mixin</code> metamethod provided:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>class</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Foo</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>role</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Bar</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span><span>&nbsp;</span><span class="punctuation definition block perl6fe"><span>}</span></span></span></span></div><div class="line"><span class="source perl6fe"><span>&nbsp;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Foo</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>new</span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>but</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Bar</span></span><span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Foo+{Bar}.new␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Foo</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>new</span></span><span class="keyword operator generic perl6fe"><span>.</span><span>^</span></span><span class="routine name perl6fe"><span>mixin</span></span><span>(</span><span class="routine name perl6fe"><span>Bar</span></span><span>);&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Foo+{Bar}.new␤»</span><span>&nbsp;</span></span></span></div></pre><h1 id="Methods"><a class="u" href="#___top" title="go to top of document">Methods</a></h1>
+<h2 id="method_set_is_mixin"><a class="u" href="#___top" title="go to top of document">method set_is_mixin</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>set_is_mixin</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>)</span></span></div></pre><p>Marks <code>$obj</code> as being a mixin.</p>
+<h2 id="method_is_mixin"><a class="u" href="#___top" title="go to top of document">method is_mixin</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>is_mixin</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>)</span></span></div></pre><p>Returns <code>1</code> If <code>$obj</code> has been marked as being a mixin with <code>set_is_mixin</code>, otherwise returns <code>0</code>.</p>
+<h2 id="method_set_mixin_attribute"><a class="u" href="#___top" title="go to top of document">method set_mixin_attribute</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>set_mixin_attribute</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>,&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>attr</span></span></span><span>)</span></span></div></pre><p>Sets the mixin attribute for <code>$obj</code> to <code>$attr</code> (which should be an <a href="/type/Attribute">Attribute</a> instance).</p>
+<h2 id="method_mixin_attribute"><a class="u" href="#___top" title="go to top of document">method mixin_attribute</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>mixin_attribute</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>)</span></span></div></pre><p>Returns the mixin attribute for <code>$obj</code> set with <code>set_mixin_attribute</code>.</p>
+<h2 id="method_setup_mixin_cache"><a class="u" href="#___top" title="go to top of document">method setup_mixin_cache</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>setup_mixin_cache</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>)</span></span></div></pre><p>Sets up caching of mixins for <code>$obj</code>. After this metamethod has been called, calls to <code>mixin</code> will not create a new type for mixins of <code>$obj</code> given the same list of roles more than once. This should be called at some point before composition.</p>
+<h2 id="method_flush_cache"><a class="u" href="#___top" title="go to top of document">method flush_cache</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>flush_cache</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>)</span></span></div></pre><p>No-op.</p>
+<h2 id="method_generate_mixin"><a class="u" href="#___top" title="go to top of document">method generate_mixin</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>generate_mixin</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>,&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>@</span></span><span class="variable other identifier perl6fe"><span>roles</span></span></span><span>)</span></span></div></pre><p>Creates a new mixin metaobject that inherits from <code>$obj</code> and does each of the roles in <code>@roles</code>. This is then composed and has its mixin attribute set (if any exists) before getting returned.</p>
+<p>While this generates a new mixin type, this doesn&#39;t actually mix it into <code>$obj</code>; if that is what you intend to do, use the <a href="mixin">mixin</a> metamethod instead.</p>
+<h2 id="method_mixin"><a class="u" href="#___top" title="go to top of document">method mixin</a></h2>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage type declarator type perl6fe"><span>method</span></span><span>&nbsp;</span><span class="entity name function perl6fe"><span>mixin</span></span><span>(</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>obj</span></span></span><span>,&nbsp;</span><span class="keyword operator generic perl6fe"><span>*</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>@</span></span><span class="variable other identifier perl6fe"><span>roles</span></span></span><span>,&nbsp;</span><span class="keyword operator generic perl6fe"><span>:</span></span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>needs-mixin-attribute</span></span></span><span>)</span></span></div></pre><p>Generates a new mixin type by calling <code>generate_mixin</code> with <code>$obj</code> and <code>@roles</code>. If <code>$obj</code> is composed, the mixin cache of <code>$obj</code> will be checked for any existing mixin for these beforehand. If <code>$obj</code> is an instance of a type, this will return <code>$obj</code> reblessed with the mixin generated, otherwise this will return the mixin itself.</p>
+<p>If <code>$needs-mixin-attribute</code> is <code>True</code>, this will throw an exception if no mixin attribute exists on the mixin generated before returning.</p>
+<h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
+<figure>
+  <figcaption>Type relations for <code>Metamodel::Mixins</code></figcaption>
+  <svg width="1938pt" height="1771pt"
+ viewBox="0.00 0.00 1937.72 1770.94" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1766.94)">
+<title>perl6&#45;type&#45;graph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1766.94 1933.72,-1766.94 1933.72,4 -4,4"/>
+<!-- Metamodel::Mixins -->
+<g id="node1" class="node">
+<title>Metamodel::Mixins</title>
+<g id="a_node1"><a xlink:href="/type/Metamodel::Mixins" xlink:title="Metamodel::Mixins">
+<ellipse fill="none" stroke="#6666ff" cx="275.78" cy="-721.03" rx="94.78" ry="18"/>
+<text text-anchor="middle" x="275.78" y="-717.33" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Mixins</text>
+</a>
+</g>
+</g>
+<!-- Mu -->
+<g id="node2" class="node">
+<title>Mu</title>
+<g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
+<ellipse fill="none" stroke="#000000" cx="1902.72" cy="-497.51" rx="27" ry="18"/>
+<text text-anchor="middle" x="1902.72" y="-493.81" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+</a>
+</g>
+</g>
+<!-- Any -->
+<g id="node3" class="node">
+<title>Any</title>
+<g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
+<ellipse fill="none" stroke="#000000" cx="1350.43" cy="-657.96" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="1350.43" y="-654.26" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+</a>
+</g>
+</g>
+<!-- Any&#45;&gt;Mu -->
+<g id="edge1" class="edge">
+<title>Any&#45;&gt;Mu</title>
+<path fill="none" stroke="#000000" d="M1376.69,-650.33C1467.16,-624.05 1765.86,-537.27 1868.07,-507.58"/>
+<polygon fill="#000000" stroke="#000000" points="1869.26,-510.88 1877.89,-504.73 1867.31,-504.16 1869.26,-510.88"/>
+</g>
+<!-- Metamodel::Naming -->
+<g id="node4" class="node">
+<title>Metamodel::Naming</title>
+<g id="a_node4"><a xlink:href="/type/Metamodel::Naming" xlink:title="Metamodel::Naming">
+<ellipse fill="none" stroke="#6666ff" cx="792.61" cy="-1343.25" rx="101.28" ry="18"/>
+<text text-anchor="middle" x="792.61" y="-1339.55" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Naming</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Stashing -->
+<g id="node5" class="node">
+<title>Metamodel::Stashing</title>
+<g id="a_node5"><a xlink:href="/type/Metamodel::Stashing" xlink:title="Metamodel::Stashing">
+<ellipse fill="none" stroke="#6666ff" cx="1183.68" cy="-1020.89" rx="105.88" ry="18"/>
+<text text-anchor="middle" x="1183.68" y="-1017.19" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Stashing</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::AttributeContainer -->
+<g id="node6" class="node">
+<title>Metamodel::AttributeContainer</title>
+<g id="a_node6"><a xlink:href="/type/Metamodel::AttributeContainer" xlink:title="Metamodel::AttributeContainer">
+<ellipse fill="none" stroke="#6666ff" cx="423.8" cy="-1070.45" rx="150.27" ry="18"/>
+<text text-anchor="middle" x="423.8" y="-1066.75" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::AttributeContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MethodContainer -->
+<g id="node7" class="node">
+<title>Metamodel::MethodContainer</title>
+<g id="a_node7"><a xlink:href="/type/Metamodel::MethodContainer" xlink:title="Metamodel::MethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="417.54" cy="-581.08" rx="143.77" ry="18"/>
+<text text-anchor="middle" x="417.54" y="-577.38" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MultiMethodContainer -->
+<g id="node8" class="node">
+<title>Metamodel::MultiMethodContainer</title>
+<g id="a_node8"><a xlink:href="/type/Metamodel::MultiMethodContainer" xlink:title="Metamodel::MultiMethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="1327.08" cy="-858.73" rx="165.97" ry="18"/>
+<text text-anchor="middle" x="1327.08" y="-855.03" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MultiMethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::RoleContainer -->
+<g id="node9" class="node">
+<title>Metamodel::RoleContainer</title>
+<g id="a_node9"><a xlink:href="/type/Metamodel::RoleContainer" xlink:title="Metamodel::RoleContainer">
+<ellipse fill="none" stroke="#6666ff" cx="565.79" cy="-487.35" rx="129.98" ry="18"/>
+<text text-anchor="middle" x="565.79" y="-483.65" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::RoleContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::BaseType -->
+<g id="node10" class="node">
+<title>Metamodel::BaseType</title>
+<g id="a_node10"><a xlink:href="/type/Metamodel::BaseType" xlink:title="Metamodel::BaseType">
+<ellipse fill="none" stroke="#6666ff" cx="1046.83" cy="-18" rx="109.38" ry="18"/>
+<text text-anchor="middle" x="1046.83" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::BaseType</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MROBasedMethodDispatch -->
+<g id="node11" class="node">
+<title>Metamodel::MROBasedMethodDispatch</title>
+<g id="a_node11"><a xlink:href="/type/Metamodel::MROBasedMethodDispatch" xlink:title="Metamodel::MROBasedMethodDispatch">
+<ellipse fill="none" stroke="#6666ff" cx="762.87" cy="-430.27" rx="188.47" ry="18"/>
+<text text-anchor="middle" x="762.87" y="-426.57" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MROBasedMethodDispatch</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MROBasedTypeChecking -->
+<g id="node12" class="node">
+<title>Metamodel::MROBasedTypeChecking</title>
+<g id="a_node12"><a xlink:href="/type/Metamodel::MROBasedTypeChecking" xlink:title="Metamodel::MROBasedTypeChecking">
+<ellipse fill="none" stroke="#6666ff" cx="374.07" cy="-867.32" rx="178.97" ry="18"/>
+<text text-anchor="middle" x="374.07" y="-863.62" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MROBasedTypeChecking</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::BUILDPLAN -->
+<g id="node13" class="node">
+<title>Metamodel::BUILDPLAN</title>
+<g id="a_node13"><a xlink:href="/type/Metamodel::BUILDPLAN" xlink:title="Metamodel::BUILDPLAN">
+<ellipse fill="none" stroke="#6666ff" cx="1385.65" cy="-1110.37" rx="118.08" ry="18"/>
+<text text-anchor="middle" x="1385.65" y="-1106.67" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::BUILDPLAN</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::BoolificationProtocol -->
+<g id="node14" class="node">
+<title>Metamodel::BoolificationProtocol</title>
+<g id="a_node14"><a xlink:href="/type/Metamodel::BoolificationProtocol" xlink:title="Metamodel::BoolificationProtocol">
+<ellipse fill="none" stroke="#6666ff" cx="1141.41" cy="-1273.69" rx="157.07" ry="18"/>
+<text text-anchor="middle" x="1141.41" y="-1269.99" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::BoolificationProtocol</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::EnumHOW -->
+<g id="node15" class="node">
+<title>Metamodel::EnumHOW</title>
+<g id="a_node15"><a xlink:href="/type/Metamodel::EnumHOW" xlink:title="Metamodel::EnumHOW">
+<ellipse fill="none" stroke="#000000" cx="896.28" cy="-717.46" rx="115.88" ry="18"/>
+<text text-anchor="middle" x="896.28" y="-713.76" font-family="FreeSans" font-size="14.00" fill="#000000">Metamodel::EnumHOW</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::Mixins -->
+<g id="edge15" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::Mixins</title>
+<path fill="none" stroke="#6666ff" d="M780.66,-718.13C666.07,-718.78 492.08,-719.78 381.19,-720.42"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="380.98,-716.92 371,-720.48 381.02,-723.92 380.98,-716.92"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Any -->
+<g id="edge2" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M984.92,-705.85C1084.32,-692.82 1240.94,-672.3 1312.5,-662.93"/>
+<polygon fill="#000000" stroke="#000000" points="1312.96,-666.4 1322.42,-661.63 1312.05,-659.46 1312.96,-666.4"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::Naming -->
+<g id="edge4" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::Naming</title>
+<path fill="none" stroke="#6666ff" d="M896.24,-735.62C896.09,-809.5 895.54,-1083.6 895.54,-1083.6 895.54,-1083.6 830.17,-1248.52 803.62,-1315.49"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="800.28,-1314.4 799.85,-1324.99 806.79,-1316.98 800.28,-1314.4"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::Stashing -->
+<g id="edge5" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::Stashing</title>
+<path fill="none" stroke="#6666ff" d="M913.39,-735.53C962.31,-787.18 1102.85,-935.55 1159.54,-995.41"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1157.23,-998.06 1166.65,-1002.92 1162.31,-993.25 1157.23,-998.06"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::AttributeContainer -->
+<g id="edge6" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::AttributeContainer</title>
+<path fill="none" stroke="#6666ff" d="M872.52,-735.21C794.3,-793.65 544.7,-980.13 455.7,-1046.62"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="453.52,-1043.88 447.6,-1052.67 457.7,-1049.49 453.52,-1043.88"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::MethodContainer -->
+<g id="edge7" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::MethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M840.42,-701.55C752.16,-676.41 580.71,-627.56 485.46,-600.43"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="486.22,-597.01 475.64,-597.63 484.3,-603.74 486.22,-597.01"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::MultiMethodContainer -->
+<g id="edge8" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::MultiMethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M946.12,-733.8C1025.13,-759.71 1179,-810.17 1265.04,-838.38"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1264.08,-841.75 1274.68,-841.55 1266.27,-835.1 1264.08,-841.75"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::RoleContainer -->
+<g id="edge9" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::RoleContainer</title>
+<path fill="none" stroke="#6666ff" d="M870.89,-699.79C812.02,-658.79 666.14,-557.22 599.72,-510.97"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="601.47,-507.93 591.26,-505.09 597.47,-513.67 601.47,-507.93"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::BaseType -->
+<g id="edge10" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::BaseType</title>
+<path fill="none" stroke="#6666ff" d="M898.58,-699.2C904.59,-651.54 920.3,-527.04 920.3,-527.04 920.3,-527.04 952.94,-430.45 952.94,-430.45 952.94,-430.45 1019.44,-138.32 1040.51,-45.77"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1043.93,-46.52 1042.74,-35.99 1037.11,-44.96 1043.93,-46.52"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::MROBasedMethodDispatch -->
+<g id="edge11" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::MROBasedMethodDispatch</title>
+<path fill="none" stroke="#6666ff" d="M887.93,-699.5C865.34,-650.86 802.86,-516.35 775.72,-457.94"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="778.77,-456.19 771.38,-448.59 772.42,-459.14 778.77,-456.19"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::MROBasedTypeChecking -->
+<g id="edge12" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::MROBasedTypeChecking</title>
+<path fill="none" stroke="#6666ff" d="M840.89,-733.36C744.89,-760.91 547.87,-817.45 443.12,-847.51"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="441.92,-844.21 433.27,-850.33 443.85,-850.94 441.92,-844.21"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::BUILDPLAN -->
+<g id="edge13" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::BUILDPLAN</title>
+<path fill="none" stroke="#6666ff" d="M919.51,-735.32C1004.16,-800.4 1291.21,-1021.07 1291.21,-1021.07 1291.21,-1021.07 1331.09,-1058.78 1359.02,-1085.19"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1356.87,-1087.97 1366.54,-1092.3 1361.68,-1082.89 1356.87,-1087.97"/>
+</g>
+<!-- Metamodel::EnumHOW&#45;&gt;Metamodel::BoolificationProtocol -->
+<g id="edge14" class="edge">
+<title>Metamodel::EnumHOW&#45;&gt;Metamodel::BoolificationProtocol</title>
+<path fill="none" stroke="#6666ff" d="M904.29,-735.65C940.19,-817.11 1086.29,-1148.61 1129.39,-1246.41"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1126.22,-1247.9 1133.46,-1255.64 1132.63,-1245.07 1126.22,-1247.9"/>
+</g>
+<!-- Metamodel::Documenting -->
+<g id="node16" class="node">
+<title>Metamodel::Documenting</title>
+<g id="a_node16"><a xlink:href="/type/Metamodel::Documenting" xlink:title="Metamodel::Documenting">
+<ellipse fill="none" stroke="#6666ff" cx="1048.64" cy="-527.14" rx="126.98" ry="18"/>
+<text text-anchor="middle" x="1048.64" y="-523.44" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Documenting</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Versioning -->
+<g id="node17" class="node">
+<title>Metamodel::Versioning</title>
+<g id="a_node17"><a xlink:href="/type/Metamodel::Versioning" xlink:title="Metamodel::Versioning">
+<ellipse fill="none" stroke="#6666ff" cx="1332.12" cy="-1526.03" rx="114.28" ry="18"/>
+<text text-anchor="middle" x="1332.12" y="-1522.33" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Versioning</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Finalization -->
+<g id="node18" class="node">
+<title>Metamodel::Finalization</title>
+<g id="a_node18"><a xlink:href="/type/Metamodel::Finalization" xlink:title="Metamodel::Finalization">
+<ellipse fill="none" stroke="#6666ff" cx="574.61" cy="-1702.92" rx="116.98" ry="18"/>
+<text text-anchor="middle" x="574.61" y="-1699.22" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Finalization</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::PrivateMethodContainer -->
+<g id="node19" class="node">
+<title>Metamodel::PrivateMethodContainer</title>
+<g id="a_node19"><a xlink:href="/type/Metamodel::PrivateMethodContainer" xlink:title="Metamodel::PrivateMethodContainer">
+<ellipse fill="none" stroke="#6666ff" cx="384.68" cy="-1588.59" rx="174.67" ry="18"/>
+<text text-anchor="middle" x="384.68" y="-1584.89" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::PrivateMethodContainer</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::MultipleInheritance -->
+<g id="node20" class="node">
+<title>Metamodel::MultipleInheritance</title>
+<g id="a_node20"><a xlink:href="/type/Metamodel::MultipleInheritance" xlink:title="Metamodel::MultipleInheritance">
+<ellipse fill="none" stroke="#6666ff" cx="853.02" cy="-1744.94" rx="153.27" ry="18"/>
+<text text-anchor="middle" x="853.02" y="-1741.24" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::MultipleInheritance</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::DefaultParent -->
+<g id="node21" class="node">
+<title>Metamodel::DefaultParent</title>
+<g id="a_node21"><a xlink:href="/type/Metamodel::DefaultParent" xlink:title="Metamodel::DefaultParent">
+<ellipse fill="none" stroke="#6666ff" cx="218.97" cy="-1416.4" rx="128.08" ry="18"/>
+<text text-anchor="middle" x="218.97" y="-1412.7" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::DefaultParent</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::C3MRO -->
+<g id="node22" class="node">
+<title>Metamodel::C3MRO</title>
+<g id="a_node22"><a xlink:href="/type/Metamodel::C3MRO" xlink:title="Metamodel::C3MRO">
+<ellipse fill="none" stroke="#6666ff" cx="100.09" cy="-1164.04" rx="100.18" ry="18"/>
+<text text-anchor="middle" x="100.09" y="-1160.34" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::C3MRO</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::Trusting -->
+<g id="node23" class="node">
+<title>Metamodel::Trusting</title>
+<g id="a_node23"><a xlink:href="/type/Metamodel::Trusting" xlink:title="Metamodel::Trusting">
+<ellipse fill="none" stroke="#6666ff" cx="1086.38" cy="-1687.04" rx="102.88" ry="18"/>
+<text text-anchor="middle" x="1086.38" y="-1683.34" font-family="FreeSans" font-size="14.00" fill="#6666ff">Metamodel::Trusting</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ClassHOW -->
+<g id="node24" class="node">
+<title>Metamodel::ClassHOW</title>
+<g id="a_node24"><a xlink:href="/type/Metamodel::ClassHOW" xlink:title="Metamodel::ClassHOW">
+<ellipse fill="none" stroke="#000000" cx="780.85" cy="-1083.53" rx="113.18" ry="18"/>
+<text text-anchor="middle" x="780.85" y="-1079.83" font-family="FreeSans" font-size="14.00" fill="#000000">Metamodel::ClassHOW</text>
+</a>
+</g>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Mixins -->
+<g id="edge33" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Mixins</title>
+<path fill="none" stroke="#6666ff" d="M761.94,-1065.47C707.51,-1013.52 554.4,-867.38 554.4,-867.38 554.4,-867.38 394.61,-783.44 317.05,-742.7"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="318.5,-739.51 308.02,-737.96 315.24,-745.71 318.5,-739.51"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Any -->
+<g id="edge3" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M804.6,-1065.78C896.37,-997.22 1227.43,-749.86 1323.88,-677.79"/>
+<polygon fill="#000000" stroke="#000000" points="1326.05,-680.54 1331.96,-671.75 1321.86,-674.94 1326.05,-680.54"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Naming -->
+<g id="edge16" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Naming</title>
+<path fill="none" stroke="#6666ff" d="M781.68,-1101.79C783.7,-1146.4 788.9,-1261.19 791.33,-1314.83"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="787.84,-1315.17 791.79,-1325.01 794.83,-1314.86 787.84,-1315.17"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Stashing -->
+<g id="edge19" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Stashing</title>
+<path fill="none" stroke="#6666ff" d="M861.89,-1070.93C929.55,-1060.41 1025.85,-1045.43 1095.45,-1034.61"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1096.17,-1038.04 1105.51,-1033.05 1095.09,-1031.13 1096.17,-1038.04"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::AttributeContainer -->
+<g id="edge20" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::AttributeContainer</title>
+<path fill="none" stroke="#6666ff" d="M670.32,-1079.48C641.03,-1078.41 608.87,-1077.23 577.72,-1076.09"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="577.77,-1072.59 567.65,-1075.72 577.52,-1079.58 577.77,-1072.59"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::MethodContainer -->
+<g id="edge22" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::MethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M767.92,-1065.64C713.3,-990.1 501.3,-696.92 436.48,-607.27"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="439.2,-605.06 430.5,-599.01 433.53,-609.16 439.2,-605.06"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::MultiMethodContainer -->
+<g id="edge24" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::MultiMethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M821.91,-1066.63C919.81,-1026.34 1166.86,-924.67 1275.02,-880.16"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1276.51,-883.33 1284.42,-876.29 1273.84,-876.86 1276.51,-883.33"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::RoleContainer -->
+<g id="edge25" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::RoleContainer</title>
+<path fill="none" stroke="#6666ff" d="M774.3,-1065.36C743.47,-979.9 612.85,-617.79 575.69,-514.79"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="578.98,-513.6 572.3,-505.38 572.4,-515.97 578.98,-513.6"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::MROBasedMethodDispatch -->
+<g id="edge29" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::MROBasedMethodDispatch</title>
+<path fill="none" stroke="#6666ff" d="M780.36,-1065.37C777.85,-974.53 766.7,-569.32 763.64,-458.41"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="767.14,-458.23 763.37,-448.33 760.14,-458.42 767.14,-458.23"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::MROBasedTypeChecking -->
+<g id="edge30" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::MROBasedTypeChecking</title>
+<path fill="none" stroke="#6666ff" d="M748.25,-1066.2C675.09,-1027.32 497.9,-933.14 416.38,-889.81"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="417.87,-886.64 407.4,-885.04 414.58,-892.82 417.87,-886.64"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::BUILDPLAN -->
+<g id="edge32" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::BUILDPLAN</title>
+<path fill="none" stroke="#6666ff" d="M890.03,-1088.37C994.7,-1093.02 1152.53,-1100.02 1261.84,-1104.88"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1261.79,-1108.38 1271.93,-1105.33 1262.1,-1101.39 1261.79,-1108.38"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::BoolificationProtocol -->
+<g id="edge34" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::BoolificationProtocol</title>
+<path fill="none" stroke="#6666ff" d="M813.81,-1100.91C879.41,-1135.5 1026.27,-1212.96 1098.97,-1251.3"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1097.4,-1254.43 1107.88,-1256 1100.67,-1248.24 1097.4,-1254.43"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Documenting -->
+<g id="edge17" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Documenting</title>
+<path fill="none" stroke="#6666ff" d="M792.4,-1065.38C839.35,-991.54 1013.56,-717.57 1013.56,-717.57 1013.56,-717.57 1033.64,-608.6 1043.41,-555.52"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1046.91,-555.87 1045.28,-545.4 1040.02,-554.6 1046.91,-555.87"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Versioning -->
+<g id="edge18" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Versioning</title>
+<path fill="none" stroke="#6666ff" d="M799.83,-1101.4C850.03,-1148.71 982.53,-1273.56 982.53,-1273.56 982.53,-1273.56 1212.4,-1439.57 1299.34,-1502.36"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1297.38,-1505.26 1307.53,-1508.28 1301.48,-1499.58 1297.38,-1505.26"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Finalization -->
+<g id="edge21" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Finalization</title>
+<path fill="none" stroke="#6666ff" d="M774.44,-1101.79C753.67,-1160.9 689.62,-1343.22 689.62,-1343.22 689.62,-1343.22 610.64,-1590.25 583.58,-1674.88"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="580.18,-1674 580.47,-1684.59 586.85,-1676.13 580.18,-1674"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::PrivateMethodContainer -->
+<g id="edge23" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::PrivateMethodContainer</title>
+<path fill="none" stroke="#6666ff" d="M766.75,-1101.5C707.13,-1177.51 475.56,-1472.73 405.12,-1562.53"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="402.24,-1560.54 398.82,-1570.57 407.75,-1564.86 402.24,-1560.54"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::MultipleInheritance -->
+<g id="edge26" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::MultipleInheritance</title>
+<path fill="none" stroke="#6666ff" d="M788.92,-1101.79C815.04,-1160.92 895.6,-1343.28 895.6,-1343.28 895.6,-1343.28 865.7,-1625.34 856.01,-1716.73"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="852.5,-1716.58 854.93,-1726.9 859.46,-1717.32 852.5,-1716.58"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::DefaultParent -->
+<g id="edge27" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::DefaultParent</title>
+<path fill="none" stroke="#6666ff" d="M751.44,-1100.95C657.31,-1156.72 363.5,-1330.78 257.55,-1393.54"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="255.59,-1390.63 248.77,-1398.74 259.16,-1396.66 255.59,-1390.63"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::C3MRO -->
+<g id="edge28" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::C3MRO</title>
+<path fill="none" stroke="#6666ff" d="M689.75,-1094.3C560.42,-1109.59 324.82,-1137.46 193.99,-1152.93"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="193.5,-1149.46 183.98,-1154.11 194.32,-1156.42 193.5,-1149.46"/>
+</g>
+<!-- Metamodel::ClassHOW&#45;&gt;Metamodel::Trusting -->
+<g id="edge31" class="edge">
+<title>Metamodel::ClassHOW&#45;&gt;Metamodel::Trusting</title>
+<path fill="none" stroke="#6666ff" d="M790,-1101.59C833.57,-1187.66 1020.19,-1556.29 1072.63,-1659.87"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="1069.63,-1661.71 1077.27,-1669.05 1075.88,-1658.55 1069.63,-1661.71"/>
+</g>
+</g>
+</svg>
+
+  <p class="fallback">
+    <a
+      rel="alternate"
+      href="/images/type-graph-Metamodel%3A%3AMixins.svg"
+      type="image/svg+xml"
+      >Expand above chart</a
+    >
+  </p>
+</figure>
+
+    </div>
+    
+    </div>
+<footer class="pretty-box yellow">
+  <p>Generated from <a href="https://github.com/perl6/doc/blob/master/doc/Type/Metamodel::Mixins.pod6">/type/Metamodel::Mixins</a>.</p>
+  <p>This is a work in progress to document Raku (formerly known as Perl 6), and
+      known to be incomplete.</p>
+
+  <p><a
+          href="https://github.com/Raku/doc/blob/master/CONTRIBUTING.md#reporting-bugs">Please report any issues</a>.Your contribution is appreciated.</p>
+
+  <p> This documentation is provided under the terms of the
+      <a href="https://raw.githubusercontent.com/Raku/doc/master/LICENSE">Artistic License 2.0</a>.
+      The Camelia image is <a href="https://raw.githubusercontent.com/perl6/mu/master/misc/camelia.txt"
+        >copyright © 2009 by Larry Wall.</a>
+      <!-- CREDITS -->
+      <!--External Link Image by Zapyon, CCA-SA 4.0. Derived from Wikimedia Foundation https://commons.wikimedia.org/wiki/File:External-link-04-bold-12x12.svg -->
+
+  </p>
+</footer>
+
+<script type="text/javascript" src="js/app.js?v=1"></script>
+<script type="text/javascript" src="js/search.js?v=3"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (!location.hash || location.hash === "#___top") {
+      $('query').focus();
+    }
+  });
+</script>
+
+    </body>
+</html>
