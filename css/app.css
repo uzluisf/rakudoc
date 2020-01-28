@@ -1288,7 +1288,8 @@ td, th {
   font-weight: normal !important;
   /* override css/custom-theme/jquery-ui.css */
   font-style: italic;
-  background-color: red !important; }
+  background-color: #0679a7 !important;
+  opacity: 0.6; }
 
 .ui-state-active,
 .ui-state-focus {
@@ -1296,7 +1297,8 @@ td, th {
 
 .ui-menu .ui-menu-item {
   /* override css/custom-theme/jquery-ui.css */
-  font-weight: normal; }
+  font-weight: normal;
+  opacity: 0.6; }
 
 .ui-widget.ui-widget-content {
   border: 1px solid #0679a7; }
@@ -1580,4 +1582,4 @@ a[href*="://"]:not([href*="raku.org"])::after,
   overflow: hidden;
   width: 100%; }
 
-/*# sourceMappingURL=../83c498a180/style.css.map */
+/*# sourceMappingURL=../c6206d8032/style.css.map */
