@@ -17,7 +17,7 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
 
     </head>
@@ -150,8 +150,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="/js/app.js?v=1"></script>
-<script type="text/javascript" src="/js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="js/app.js?v=1"></script>
+<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {
@@ -171,6 +171,14 @@ for (var i = document.links.length; i --> 0;) {
   		);
 	}
 }
+
+for (var i = document.images.length; i --> 0;) {
+    document.images[i].setAttribute(
+  		"src",
+  		document.images[i].baseURI.slice(0, -1) + document.images[i].attributes['src']['nodeValue']
+	);
+}
+
 </script>
     </body>
 </html>
