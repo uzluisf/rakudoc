@@ -111,26 +111,5 @@
     }
   });
 </script>
-
-<script>
-for (var i = document.links.length; i --> 0;) {
-    if (document.links[i].hostname === location.hostname) {
-  		if (document.links[i].baseURI == document.links[i].href) { continue; }
-		if (!(document.links[i].pathname.startsWith('/'))) { continue; } 
-  		document.links[i].setAttribute(
-  			"href",
-  			document.links[i].baseURI.slice(0, -1) + document.links[i].pathname
-  		);
-	}
-}
-
-for (var i = document.images.length; i --> 0;) {
-    document.images[i].setAttribute(
-  		"src",
-  		document.images[i].baseURI.slice(0, -1) + document.images[i].attributes['src']['nodeValue']
-	);
-}
-
-</script>
     </body>
 </html>
