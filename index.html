@@ -16,8 +16,8 @@
         
         
         <meta name=viewport content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://uzluisf.github.io/rakudoc/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="https://uzluisf.github.io/rakudoc/css/app.css?v=7" media="screen" title="default" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
 
     </head>
@@ -26,7 +26,7 @@
     <div id="top" class="pretty-box white">
     <header class="grid">
         <div id="logo">
-            <a href="https://uzluisf.github.io/rakudoc/"><img src="https://uzluisf.github.io/rakudoc/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
+            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
         </div>
    
         <div class="menu">
@@ -74,7 +74,7 @@
     <img style="float: right; margin: 0 0 1em 1em; width:261px" src="/images/Camelia.svg" alt="" id="home_logo"/> Welcome to the official documentation of the <a href="https://raku.org">Raku</a> programming language! Besides online browsing and searching, you can also <a href="/perl6.html">view everything in one file</a> or <a href="https://github.com/Raku/doc">contribute</a> by reporting issues or sending patches.<hr/><dl><dt><a href="/language.html">Language Reference & Tutorials</a></dt> <dd> A collection of documents describing, in detail, the various conceptual parts of the language. <!-- If you're new to Raku, language>intro is a good place to start. --></dd><dt><a href="/type.html">Type Reference</a></dt> <dd> Index of built-in classes, roles and enums. </dd><dt><a href="/routine.html">Routine Reference</a></dt> <dd> Index of built-in subroutines and methods. </dd><dt><a href="/programs.html">Raku Programs</a></dt> <dd> A collection of documents describing the variables that affect the the Raku executable, how to run the p6doc documentation front-end, how to debug Raku programs, and how to hack on Raku source code. </dd><dt><a href="/language/faq">FAQs (Frequently Asked Questions)</a></dt> <dd> A collection of questions that have cropped up often, along with answers. </dd> <dt><a href="/language/community">Community</a></dt> <dd> Information about the Raku development community, email lists, IRC and IRC bots, and blogs </dd> <hr/><p>The Raku homepage offers <a href="https://raku.org/resources/">a comprehensive list of Raku resources</a>, including tutorials, and how-tos.</p><p>You may be interested in the <a href="https://raku.org/community/">Community</a> page on the main Raku website.</p><p> Raku compiler developers may also be interested in <a href="https://github.com/perl6/roast">The Raku Specification</a>. </p><p>Part of this official documentation has been translated into Chinese. Here's the <a href='https://github.com/ohmycloud/perl6doc-zh/blob/master/index.adoc'>index to the pages that have been translated</a>.</p>
     </div>
     
-    </div>
+    D</div>
 <footer class="pretty-box yellow">
   <p>Generated from <a href="https://github.com/perl6/doc/blob/master/doc/HomePage.pod6">HomePage.pod6</a>.</p>
   <p>This is a work in progress to document Raku (formerly known as Perl 6), and
@@ -93,14 +93,27 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="https://uzluisf.github.io/rakudoc/js/app.js?v=1"></script>
-<script type="text/javascript" src="https://uzluisf.github.io/rakudoc/js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/app.js?v=1"js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {
       $('query').focus();
     }
   });
+</script>
+
+<script>
+for (var i = document.links.length; i --> 0;) {
+    if (document.links[i].hostname === location.hostname) {
+  		if (document.links[i].baseURI == document.links[i].href) { continue; }
+		if (!(document.links[i].pathname.startsWith('/'))) { continue; } 
+  		document.links[i].setAttribute(
+  			"href",
+  			document.links[i].baseURI.slice(0, -1) + document.links[i].pathname
+  		);
+	}
+}
 </script>
 
     </body>

@@ -16,8 +16,8 @@
         
         
         <meta name=viewport content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://uzluisf.github.io/rakudoc/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="https://uzluisf.github.io/rakudoc/css/app.css?v=7" media="screen" title="default" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
 
     </head>
@@ -26,7 +26,7 @@
     <div id="top" class="pretty-box white">
     <header class="grid">
         <div id="logo">
-            <a href="https://uzluisf.github.io/rakudoc/"><img src="https://uzluisf.github.io/rakudoc/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
+            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
         </div>
    
         <div class="menu">
@@ -74,7 +74,7 @@
     <img style="float: right; margin: 0 0 1em 1em" src="/images/camelia-404.png" alt="" id="home_logo"/><h2>404: Page Not Found</h2><p style="line-height: 1.7em"> We're sorry, but the page you tried to reach cannot be found.<ul><li> If you got here by following a link on this site or as a result of searching on it, please report it <a href="https://github.com/Raku/doc/issues/">on our GitHub repository</a> so we can fix it!</li> <li>If a search engine sent you here, the link might have disappeared due to site reorganization. We still encourage you to report it as above, but it will eventually disappear from search engines too.</li> <li>If you came following a link from some site or blog, we would still want to know about that; you might want to report the blog or website author too.</li> </ul></p>
     </div>
     
-    </div>
+    D</div>
 <footer class="pretty-box yellow">
   <p>Generated from <a href="https://github.com/perl6/doc/blob/master/doc/404.pod6">404.pod6</a>.</p>
   <p>This is a work in progress to document Raku (formerly known as Perl 6), and
@@ -93,14 +93,27 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="https://uzluisf.github.io/rakudoc/js/app.js?v=1"></script>
-<script type="text/javascript" src="https://uzluisf.github.io/rakudoc/js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/app.js?v=1"js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {
       $('query').focus();
     }
   });
+</script>
+
+<script>
+for (var i = document.links.length; i --> 0;) {
+    if (document.links[i].hostname === location.hostname) {
+  		if (document.links[i].baseURI == document.links[i].href) { continue; }
+		if (!(document.links[i].pathname.startsWith('/'))) { continue; } 
+  		document.links[i].setAttribute(
+  			"href",
+  			document.links[i].baseURI.slice(0, -1) + document.links[i].pathname
+  		);
+	}
+}
 </script>
 
     </body>

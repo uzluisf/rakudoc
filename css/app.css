@@ -1017,7 +1017,7 @@ atom-text-editor.is-focused .line.cursor-line {
   padding: 0 10px; }
 
 #top header {
-  grid-template-columns: 5vw 3fr 15vw; }
+  grid-template-columns: 5vw 3fr 10vw; }
 
 #top #logo {
   grid-column: 1; }
