@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_PositionalBindFailover">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_PositionalBindFailover">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/PositionalBindFailover.pod6'">
@@ -98,17 +128,17 @@
 <h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>PositionalBindFailover</code></figcaption>
-  <svg width="420pt" height="260pt"
- viewBox="0.00 0.00 419.59 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="399pt" height="260pt"
+ viewBox="0.00 0.00 398.74 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 415.59,-256 415.59,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 394.74,-256 394.74,4 -4,4"/>
 <!-- PositionalBindFailover -->
 <g id="node1" class="node">
 <title>PositionalBindFailover</title>
 <g id="a_node1"><a xlink:href="/type/PositionalBindFailover" xlink:title="PositionalBindFailover">
-<ellipse fill="none" stroke="#6666ff" cx="134.55" cy="-162" rx="109.38" ry="18"/>
-<text text-anchor="middle" x="134.55" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">PositionalBindFailover</text>
+<ellipse fill="none" stroke="#6666ff" cx="109.19" cy="-162" rx="109.38" ry="18"/>
+<text text-anchor="middle" x="109.19" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">PositionalBindFailover</text>
 </a>
 </g>
 </g>
@@ -116,23 +146,23 @@
 <g id="node2" class="node">
 <title>Sequence</title>
 <g id="a_node2"><a xlink:href="/type/Sequence" xlink:title="Sequence">
-<ellipse fill="none" stroke="#6666ff" cx="134.55" cy="-90" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="134.55" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Sequence</text>
+<ellipse fill="none" stroke="#6666ff" cx="109.19" cy="-90" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="109.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Sequence</text>
 </a>
 </g>
 </g>
 <!-- Sequence&#45;&gt;PositionalBindFailover -->
 <g id="edge6" class="edge">
 <title>Sequence&#45;&gt;PositionalBindFailover</title>
-<path fill="none" stroke="#6666ff" d="M134.55,-108.3C134.55,-116.02 134.55,-125.29 134.55,-133.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="131.05,-133.9 134.55,-143.9 138.05,-133.9 131.05,-133.9"/>
+<path fill="none" stroke="#6666ff" d="M109.19,-108.3C109.19,-116.02 109.19,-125.29 109.19,-133.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="105.69,-133.9 109.19,-143.9 112.69,-133.9 105.69,-133.9"/>
 </g>
 <!-- Mu -->
 <g id="node3" class="node">
 <title>Mu</title>
 <g id="a_node3"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="326.55" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="326.55" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="301.19" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="301.19" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -140,121 +170,121 @@
 <g id="node4" class="node">
 <title>Any</title>
 <g id="a_node4"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="326.55" cy="-162" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="326.55" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="301.19" cy="-162" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="301.19" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
 <g id="edge1" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M326.55,-180.3C326.55,-188.02 326.55,-197.29 326.55,-205.89"/>
-<polygon fill="#000000" stroke="#000000" points="323.05,-205.9 326.55,-215.9 330.05,-205.9 323.05,-205.9"/>
+<path fill="none" stroke="#000000" d="M301.19,-180.3C301.19,-188.02 301.19,-197.29 301.19,-205.89"/>
+<polygon fill="#000000" stroke="#000000" points="297.69,-205.9 301.19,-215.9 304.69,-205.9 297.69,-205.9"/>
 </g>
 <!-- Iterable -->
 <g id="node5" class="node">
 <title>Iterable</title>
 <g id="a_node5"><a xlink:href="/type/Iterable" xlink:title="Iterable">
-<ellipse fill="none" stroke="#6666ff" cx="253.55" cy="-90" rx="45.49" ry="18"/>
-<text text-anchor="middle" x="253.55" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Iterable</text>
+<ellipse fill="none" stroke="#6666ff" cx="228.19" cy="-90" rx="45.49" ry="18"/>
+<text text-anchor="middle" x="228.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Iterable</text>
 </a>
 </g>
-</g>
-<!-- HyperSeq -->
-<g id="node6" class="node">
-<title>HyperSeq</title>
-<g id="a_node6"><a xlink:href="/type/HyperSeq" xlink:title="HyperSeq">
-<ellipse fill="none" stroke="#000000" cx="238.55" cy="-18" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="238.55" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">HyperSeq</text>
-</a>
-</g>
-</g>
-<!-- HyperSeq&#45;&gt;Sequence -->
-<g id="edge8" class="edge">
-<title>HyperSeq&#45;&gt;Sequence</title>
-<path fill="none" stroke="#6666ff" d="M215.47,-34.54C200.92,-44.32 181.96,-57.09 166.04,-67.8"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="163.91,-65.02 157.56,-73.51 167.81,-70.83 163.91,-65.02"/>
-</g>
-<!-- HyperSeq&#45;&gt;Any -->
-<g id="edge2" class="edge">
-<title>HyperSeq&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M259.25,-34.9C279.57,-50.51 307.55,-72 307.55,-72 307.55,-72 315.2,-107.83 320.79,-134.03"/>
-<polygon fill="#000000" stroke="#000000" points="317.37,-134.79 322.88,-143.84 324.22,-133.33 317.37,-134.79"/>
-</g>
-<!-- HyperSeq&#45;&gt;Iterable -->
-<g id="edge7" class="edge">
-<title>HyperSeq&#45;&gt;Iterable</title>
-<path fill="none" stroke="#6666ff" d="M242.26,-36.3C243.91,-44.02 245.89,-53.29 247.74,-61.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="244.36,-62.85 249.88,-71.9 251.21,-61.38 244.36,-62.85"/>
 </g>
 <!-- RaceSeq -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>RaceSeq</title>
-<g id="a_node7"><a xlink:href="/type/RaceSeq" xlink:title="RaceSeq">
-<ellipse fill="none" stroke="#000000" cx="361.55" cy="-18" rx="50.09" ry="18"/>
-<text text-anchor="middle" x="361.55" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">RaceSeq</text>
+<g id="a_node6"><a xlink:href="/type/RaceSeq" xlink:title="RaceSeq">
+<ellipse fill="none" stroke="#000000" cx="228.19" cy="-18" rx="50.09" ry="18"/>
+<text text-anchor="middle" x="228.19" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">RaceSeq</text>
 </a>
 </g>
 </g>
 <!-- RaceSeq&#45;&gt;Sequence -->
-<g id="edge10" class="edge">
+<g id="edge8" class="edge">
 <title>RaceSeq&#45;&gt;Sequence</title>
-<path fill="none" stroke="#6666ff" d="M324.82,-30.32C286.17,-42.24 225.17,-61.06 182.69,-74.16"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="181.64,-70.81 173.12,-77.11 183.7,-77.5 181.64,-70.81"/>
+<path fill="none" stroke="#6666ff" d="M203.24,-33.67C185.95,-43.85 162.69,-57.53 143.63,-68.74"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="141.77,-65.77 134.93,-73.86 145.32,-71.81 141.77,-65.77"/>
 </g>
 <!-- RaceSeq&#45;&gt;Any -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>RaceSeq&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M357.5,-36.16C351.4,-62.02 340.55,-108 340.55,-108 340.55,-108 337.12,-120.98 333.65,-134.1"/>
-<polygon fill="#000000" stroke="#000000" points="330.22,-133.38 331.05,-143.94 336.99,-135.16 330.22,-133.38"/>
+<path fill="none" stroke="#000000" d="M244.69,-35.19C260.57,-50.78 282.19,-72 282.19,-72 282.19,-72 289.84,-107.83 295.43,-134.03"/>
+<polygon fill="#000000" stroke="#000000" points="292.02,-134.79 297.53,-143.84 298.86,-133.33 292.02,-134.79"/>
 </g>
 <!-- RaceSeq&#45;&gt;Iterable -->
-<g id="edge9" class="edge">
+<g id="edge7" class="edge">
 <title>RaceSeq&#45;&gt;Iterable</title>
-<path fill="none" stroke="#6666ff" d="M338.38,-34.02C322.76,-44.14 301.95,-57.62 284.86,-68.7"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="282.79,-65.87 276.31,-74.25 286.6,-71.75 282.79,-65.87"/>
+<path fill="none" stroke="#6666ff" d="M228.19,-36.3C228.19,-44.02 228.19,-53.29 228.19,-61.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="224.69,-61.9 228.19,-71.9 231.69,-61.9 224.69,-61.9"/>
 </g>
 <!-- Cool -->
-<g id="node8" class="node">
+<g id="node7" class="node">
 <title>Cool</title>
-<g id="a_node8"><a xlink:href="/type/Cool" xlink:title="Cool">
-<ellipse fill="none" stroke="#000000" cx="30.55" cy="-90" rx="30.59" ry="18"/>
-<text text-anchor="middle" x="30.55" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Cool</text>
+<g id="a_node7"><a xlink:href="/type/Cool" xlink:title="Cool">
+<ellipse fill="none" stroke="#000000" cx="360.19" cy="-90" rx="30.59" ry="18"/>
+<text text-anchor="middle" x="360.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Cool</text>
 </a>
 </g>
 </g>
 <!-- Cool&#45;&gt;Any -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>Cool&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M54.74,-101.28C63.16,-104.86 70.55,-108 70.55,-108 70.55,-108 252.55,-144 252.55,-144 252.55,-144 271.29,-148.31 289.91,-152.58"/>
-<polygon fill="#000000" stroke="#000000" points="289.3,-156.03 299.83,-154.86 290.87,-149.21 289.3,-156.03"/>
+<path fill="none" stroke="#000000" d="M347.1,-106.54C339.38,-115.69 329.47,-127.45 320.83,-137.69"/>
+<polygon fill="#000000" stroke="#000000" points="318.02,-135.61 314.25,-145.51 323.37,-140.12 318.02,-135.61"/>
 </g>
 <!-- Seq -->
-<g id="node9" class="node">
+<g id="node8" class="node">
 <title>Seq</title>
-<g id="a_node9"><a xlink:href="/type/Seq" xlink:title="Seq">
-<ellipse fill="none" stroke="#000000" cx="134.55" cy="-18" rx="27.9" ry="18"/>
-<text text-anchor="middle" x="134.55" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Seq</text>
+<g id="a_node8"><a xlink:href="/type/Seq" xlink:title="Seq">
+<ellipse fill="none" stroke="#000000" cx="324.19" cy="-18" rx="27.9" ry="18"/>
+<text text-anchor="middle" x="324.19" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Seq</text>
 </a>
 </g>
 </g>
 <!-- Seq&#45;&gt;Sequence -->
-<g id="edge12" class="edge">
+<g id="edge10" class="edge">
 <title>Seq&#45;&gt;Sequence</title>
-<path fill="none" stroke="#6666ff" d="M134.55,-36.3C134.55,-44.02 134.55,-53.29 134.55,-61.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="131.05,-61.9 134.55,-71.9 138.05,-61.9 131.05,-61.9"/>
+<path fill="none" stroke="#6666ff" d="M301.81,-29.28C294.02,-32.86 287.19,-36 287.19,-36 287.19,-36 211.24,-58.61 158.56,-74.3"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="157.28,-71.03 148.69,-77.24 159.28,-77.74 157.28,-71.03"/>
 </g>
 <!-- Seq&#45;&gt;Iterable -->
-<g id="edge11" class="edge">
+<g id="edge9" class="edge">
 <title>Seq&#45;&gt;Iterable</title>
-<path fill="none" stroke="#6666ff" d="M154.47,-30.72C172.41,-41.27 199.15,-57 220.33,-69.46"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="218.63,-72.52 229.03,-74.58 222.18,-66.49 218.63,-72.52"/>
+<path fill="none" stroke="#6666ff" d="M306.13,-32.17C292.39,-42.19 273.18,-56.19 257.27,-67.79"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="254.85,-65.23 248.83,-73.95 258.97,-70.88 254.85,-65.23"/>
 </g>
 <!-- Seq&#45;&gt;Cool -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>Seq&#45;&gt;Cool</title>
-<path fill="none" stroke="#000000" d="M115.95,-31.51C99.99,-42.26 76.73,-57.91 58.52,-70.17"/>
-<polygon fill="#000000" stroke="#000000" points="56.38,-67.39 50.04,-75.88 60.29,-73.2 56.38,-67.39"/>
+<path fill="none" stroke="#000000" d="M332.54,-35.24C336.84,-43.6 342.18,-53.98 347.02,-63.39"/>
+<polygon fill="#000000" stroke="#000000" points="343.95,-65.07 351.64,-72.37 350.17,-61.87 343.95,-65.07"/>
+</g>
+<!-- HyperSeq -->
+<g id="node9" class="node">
+<title>HyperSeq</title>
+<g id="a_node9"><a xlink:href="/type/HyperSeq" xlink:title="HyperSeq">
+<ellipse fill="none" stroke="#000000" cx="105.19" cy="-18" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="105.19" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">HyperSeq</text>
+</a>
+</g>
+</g>
+<!-- HyperSeq&#45;&gt;Sequence -->
+<g id="edge12" class="edge">
+<title>HyperSeq&#45;&gt;Sequence</title>
+<path fill="none" stroke="#6666ff" d="M106.18,-36.3C106.62,-44.02 107.15,-53.29 107.64,-61.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="104.15,-62.11 108.21,-71.9 111.14,-61.71 104.15,-62.11"/>
+</g>
+<!-- HyperSeq&#45;&gt;Any -->
+<g id="edge5" class="edge">
+<title>HyperSeq&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M86.86,-35.19C69.22,-50.78 45.19,-72 45.19,-72 45.19,-72 45.19,-108 45.19,-108 45.19,-108 227.19,-144 227.19,-144 227.19,-144 245.94,-148.31 264.56,-152.58"/>
+<polygon fill="#000000" stroke="#000000" points="263.94,-156.03 274.47,-154.86 265.51,-149.21 263.94,-156.03"/>
+</g>
+<!-- HyperSeq&#45;&gt;Iterable -->
+<g id="edge11" class="edge">
+<title>HyperSeq&#45;&gt;Iterable</title>
+<path fill="none" stroke="#6666ff" d="M131.58,-34.02C149.94,-44.47 174.59,-58.49 194.39,-69.76"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="192.68,-72.82 203.11,-74.73 196.15,-66.74 192.68,-72.82"/>
 </g>
 </g>
 </svg>
@@ -290,8 +320,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

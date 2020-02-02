@@ -207,6 +207,7 @@ digraph "perl6-type-graph" {
     "Order" [color="#33BB33", fontcolor="#33BB33", href="/type/Order", fontname="FreeSans"];
     "Pair" [color="#000000", fontcolor="#000000", href="/type/Pair", fontname="FreeSans"];
     "Parameter" [color="#000000", fontcolor="#000000", href="/type/Parameter", fontname="FreeSans"];
+    "Raku" [color="#000000", fontcolor="#000000", href="/type/Raku", fontname="FreeSans"];
     "Perl" [color="#000000", fontcolor="#000000", href="/type/Perl", fontname="FreeSans"];
     "Pod::Block" [color="#000000", fontcolor="#000000", href="/type/Pod::Block", fontname="FreeSans"];
     "Pod::Block::Code" [color="#000000", fontcolor="#000000", href="/type/Pod::Block::Code", fontname="FreeSans"];
@@ -398,7 +399,8 @@ digraph "perl6-type-graph" {
     "Order" -> "Int" [color="#000000"];
     "Pair" -> "Any" [color="#000000"];
     "Parameter" -> "Any" [color="#000000"];
-    "Perl" -> "Any" [color="#000000"];
+    "Raku" -> "Any" [color="#000000"];
+    "Perl" -> "Raku" [color="#000000"];
     "Pod::Block" -> "Any" [color="#000000"];
     "Pod::Block::Code" -> "Pod::Block" [color="#000000"];
     "Pod::Block::Comment" -> "Pod::Block" [color="#000000"];
@@ -597,7 +599,7 @@ digraph "perl6-type-graph" {
     "Uni" -> "Stringy" [color="#6666FF"];
     "Num" -> "Real" [color="#6666FF"];
     "Pair" -> "Associative" [color="#6666FF"];
-    "Perl" -> "Systemic" [color="#6666FF"];
+    "Raku" -> "Systemic" [color="#6666FF"];
     "PredictiveIterator" -> "Iterator" [color="#6666FF"];
     "RaceSeq" -> "Iterable" [color="#6666FF"];
     "RaceSeq" -> "Sequence" [color="#6666FF"];

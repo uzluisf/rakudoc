@@ -11,6 +11,7 @@ digraph "perl6-type-graph" {
 
     // Superclasses
     "X::Attribute::Required" -> "Exception" [color="#000000"];
+    "X::Attribute::Required" -> "Any" [color="#000000"];
     "Any" -> "Mu" [color="#000000"];
     "Exception" -> "Any" [color="#000000"];
     "MOP" -> "Any" [color="#000000"];

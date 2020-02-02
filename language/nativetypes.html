@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item selected darker-green" href="/language.html"> Language </a> <a class="menu-item " href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__language_nativetypes">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__language_nativetypes">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Language/nativetypes.pod6'">
@@ -74,7 +104,7 @@
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
            <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Types_with_native_representation">Types with native representation</a></td></tr>
-                                                                                                              <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Types_with_native_representation_and_size">Types with native representation and size</a></td></tr>
+                                                                                                                <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Types_with_native_representation_and_size">Types with native representation and size</a></td></tr>
                                          <tr class="toc-level-1"><td class="toc-number">3</td><td class="toc-text"><a href="#The_void_type">The <code class="pod-code-inline">void</code> type</a></td></tr>
                                       <tr class="toc-level-1"><td class="toc-number">4</td><td class="toc-text"><a href="#Atomic_types">Atomic types</a></td></tr>
           <tr class="toc-level-1"><td class="toc-number">5</td><td class="toc-text"><a href="#Rakudo_specific_native_types">Rakudo specific native types</a></td></tr>
@@ -96,7 +126,7 @@
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>int</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>intillo</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="constant numeric perl6fe"><span>3</span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>intillo</span></span></span><span class="keyword operator generic perl6fe"><span>.</span><span>^</span></span><span class="support function perl6fe"><span>name</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Int␤»</span></span></span></div></pre><p>This obviously means that they will smartmatch their equivalent (auto-boxed) type, not their native type:</p>
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>str</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>strillo</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="string quoted double perl6fe"><span class="punctuation definition string begin perl6fe"><span>&quot;</span></span><span>tres</span><span class="punctuation definition string end perl6fe"><span>&quot;</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>strillo</span></span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>~~</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>str</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«False␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>strillo</span></span></span><span>&nbsp;</span><span class="keyword operator multi-symbol perl6fe"><span>~~</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«True␤»</span></span></span></div></pre><p>And also that they will always have a default value, unlike their non-native counterparts:</p>
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;(</span><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>Str</span></span><span>&nbsp;$);&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«(Str)␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;(</span><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>str</span></span><span>&nbsp;$);&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«␤»</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;(</span><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>num</span></span><span>&nbsp;$);&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«0␤»</span></span></span></div></pre><p><strong>Note</strong>: In v6.c, the default value for <code>num</code> would have been a NaN.</p>
-<p>This is due to the fact that Natives don&#39;t know their types because they&#39;re just values, without any metadata. In <a href="/language/glossary#Multi-Dispatch">multi-dispatch</a>, you can have a native candidate, but you cannot differentiate different sizes of the same native type. That is, you can have an <a href="/type/Int">Int</a> and <a href="/type/int">int</a> candidates, but there would be an ambiguity between, for instance <a href="/type/int">int</a>, <a href="/type/atomicint">atomicint</a> or <a href="/language/nativetypes#index-entry-int64">int64</a> candidates.</p>
+<p>This is due to the fact that Natives don&#39;t know their types because they&#39;re just values, without any metadata. In <a href="/language/glossary#Multi-Dispatch">multi-dispatch</a>, you can have a native candidate, but you cannot differentiate different sizes or signedness of the same native type. That is, you can have an <a href="/type/Int">Int</a> and <a href="/type/int">int</a> candidates, but there would be an ambiguity between, for instance <a href="/type/int">int</a>, <a href="/language/nativetypes#index-entry-uint">uint</a>, <a href="/type/atomicint">atomicint</a> or <a href="/language/nativetypes#index-entry-int64">int64</a> candidates.</p>
 <p>They cannot be bound either. Trying to do <code>my num $numillo := 3.5</code> will raise the exception <code>Cannot bind to natively typed variable &#39;$variable-name&#39;; use assignment instead</code>.</p>
 <p><a name="index-entry-int_@"></a> <a name="index-entry-num_@"></a> <a name="index-entry-str_@"></a> Native types can also be composite.</p>
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="support type perl6fe"><span>int</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>@</span></span><span class="variable other identifier perl6fe"><span>intillos</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="keyword operator generic perl6fe"><span>^</span></span><span class="constant numeric perl6fe"><span>10_000_000</span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;[</span><span class="keyword operator generic perl6fe"><span>+</span></span><span>]&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>@</span></span><span class="variable other identifier perl6fe"><span>intillos</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«49999995000000␤»</span></span></span></div></pre><p><a name="index-entry-native_array"></a><a name="index-entry-array"></a> In this case, <em>native</em>ness extends to the composite type, which will be <code>array</code></p>
@@ -152,8 +182,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_X__Syntax__Term__MissingInitializer">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_X__Syntax__Term__MissingInitializer">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/X::Syntax::Term::MissingInitializer.pod6'">
@@ -96,11 +126,11 @@
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;\</span><span class="routine name perl6fe"><span>foo</span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="constant numeric perl6fe"><span>42</span></span><span>;</span></span></div></pre><h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>X::Syntax::Term::MissingInitializer</code></figcaption>
-  <svg width="336pt" height="404pt"
- viewBox="0.00 0.00 335.57 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="345pt" height="404pt"
+ viewBox="0.00 0.00 345.18 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 331.57,-400 331.57,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 341.18,-400 341.18,4 -4,4"/>
 <!-- X::Syntax::Term::MissingInitializer -->
 <g id="node1" class="node">
 <title>X::Syntax::Term::MissingInitializer</title>
@@ -114,38 +144,44 @@
 <g id="node4" class="node">
 <title>Exception</title>
 <g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
-<ellipse fill="none" stroke="#000000" cx="160.79" cy="-234" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="160.79" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
+<ellipse fill="none" stroke="#000000" cx="186.79" cy="-234" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="186.79" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
 </a>
 </g>
 </g>
 <!-- X::Syntax::Term::MissingInitializer&#45;&gt;Exception -->
 <g id="edge1" class="edge">
 <title>X::Syntax::Term::MissingInitializer&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M156.7,-36.06C150.27,-51.55 141.79,-72 141.79,-72 141.79,-72 141.79,-108 141.79,-108 141.79,-108 151.06,-169.01 156.65,-205.78"/>
-<polygon fill="#000000" stroke="#000000" points="153.22,-206.52 158.18,-215.88 160.14,-205.47 153.22,-206.52"/>
+<path fill="none" stroke="#000000" d="M161.75,-36.15C162.2,-73.34 171.43,-161.63 179.26,-206.23"/>
+<polygon fill="#000000" stroke="#000000" points="175.82,-206.88 181.11,-216.06 182.7,-205.59 175.82,-206.88"/>
+</g>
+<!-- X::Syntax::Term::MissingInitializer&#45;&gt;Exception -->
+<g id="edge2" class="edge">
+<title>X::Syntax::Term::MissingInitializer&#45;&gt;Exception</title>
+<path fill="none" stroke="#000000" d="M169.51,-36.15C177.02,-73.17 186.71,-160.82 188.53,-205.61"/>
+<polygon fill="#000000" stroke="#000000" points="185.04,-205.87 188.82,-215.77 192.04,-205.67 185.04,-205.87"/>
 </g>
 <!-- X::Syntax -->
 <g id="node6" class="node">
 <title>X::Syntax</title>
 <g id="a_node6"><a xlink:href="/type/X::Syntax" xlink:title="X::Syntax">
-<ellipse fill="none" stroke="#6666ff" cx="204.79" cy="-90" rx="53.89" ry="18"/>
-<text text-anchor="middle" x="204.79" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Syntax</text>
+<ellipse fill="none" stroke="#6666ff" cx="254.79" cy="-90" rx="53.89" ry="18"/>
+<text text-anchor="middle" x="254.79" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Syntax</text>
 </a>
 </g>
 </g>
 <!-- X::Syntax::Term::MissingInitializer&#45;&gt;X::Syntax -->
-<g id="edge6" class="edge">
+<g id="edge7" class="edge">
 <title>X::Syntax::Term::MissingInitializer&#45;&gt;X::Syntax</title>
-<path fill="none" stroke="#6666ff" d="M173.92,-36.3C178.64,-44.36 184.35,-54.11 189.57,-63.02"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="186.69,-65.04 194.77,-71.9 192.73,-61.5 186.69,-65.04"/>
+<path fill="none" stroke="#6666ff" d="M185.81,-35.95C197.9,-45.24 213.02,-56.87 226.02,-66.87"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="224.15,-69.85 234.21,-73.17 228.41,-64.3 224.15,-69.85"/>
 </g>
 <!-- Mu -->
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="160.79" cy="-378" rx="27" ry="18"/>
-<text text-anchor="middle" x="160.79" y="-374.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="186.79" cy="-378" rx="27" ry="18"/>
+<text text-anchor="middle" x="186.79" y="-374.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -153,49 +189,49 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="160.79" cy="-306" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="160.79" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="186.79" cy="-306" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="186.79" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M160.79,-324.3C160.79,-332.02 160.79,-341.29 160.79,-349.89"/>
-<polygon fill="#000000" stroke="#000000" points="157.29,-349.9 160.79,-359.9 164.29,-349.9 157.29,-349.9"/>
+<path fill="none" stroke="#000000" d="M186.79,-324.3C186.79,-332.02 186.79,-341.29 186.79,-349.89"/>
+<polygon fill="#000000" stroke="#000000" points="183.29,-349.9 186.79,-359.9 190.29,-349.9 183.29,-349.9"/>
 </g>
 <!-- Exception&#45;&gt;Any -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>Exception&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M160.79,-252.3C160.79,-260.02 160.79,-269.29 160.79,-277.89"/>
-<polygon fill="#000000" stroke="#000000" points="157.29,-277.9 160.79,-287.9 164.29,-277.9 157.29,-277.9"/>
+<path fill="none" stroke="#000000" d="M186.79,-252.3C186.79,-260.02 186.79,-269.29 186.79,-277.89"/>
+<polygon fill="#000000" stroke="#000000" points="183.29,-277.9 186.79,-287.9 190.29,-277.9 183.29,-277.9"/>
 </g>
 <!-- X::Comp -->
 <g id="node5" class="node">
 <title>X::Comp</title>
 <g id="a_node5"><a xlink:href="/type/X::Comp" xlink:title="X::Comp">
-<ellipse fill="none" stroke="#6666ff" cx="237.79" cy="-162" rx="49.29" ry="18"/>
-<text text-anchor="middle" x="237.79" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Comp</text>
+<ellipse fill="none" stroke="#6666ff" cx="287.79" cy="-162" rx="49.29" ry="18"/>
+<text text-anchor="middle" x="287.79" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Comp</text>
 </a>
 </g>
 </g>
 <!-- X::Comp&#45;&gt;Exception -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>X::Comp&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M220.31,-178.88C210.15,-188.13 197.16,-199.93 185.91,-210.16"/>
-<polygon fill="#000000" stroke="#000000" points="183.5,-207.62 178.46,-216.94 188.21,-212.8 183.5,-207.62"/>
+<path fill="none" stroke="#000000" d="M265.87,-178.19C251.77,-187.96 233.24,-200.8 217.66,-211.6"/>
+<polygon fill="#000000" stroke="#000000" points="215.58,-208.78 209.36,-217.36 219.57,-214.54 215.58,-208.78"/>
 </g>
 <!-- X::Syntax&#45;&gt;Exception -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>X::Syntax&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M196.74,-108.06C189.43,-123.55 179.79,-144 179.79,-144 179.79,-144 172.14,-179.83 166.54,-206.03"/>
-<polygon fill="#000000" stroke="#000000" points="163.11,-205.33 164.45,-215.84 169.96,-206.79 163.11,-205.33"/>
+<path fill="none" stroke="#000000" d="M246.72,-107.85C234.96,-132.4 213.01,-178.23 199.19,-207.09"/>
+<polygon fill="#000000" stroke="#000000" points="196,-205.64 194.84,-216.18 202.32,-208.67 196,-205.64"/>
 </g>
 <!-- X::Syntax&#45;&gt;X::Comp -->
-<g id="edge7" class="edge">
+<g id="edge8" class="edge">
 <title>X::Syntax&#45;&gt;X::Comp</title>
-<path fill="none" stroke="#6666ff" d="M212.77,-107.95C216.58,-116.03 221.23,-125.88 225.48,-134.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="222.44,-136.66 229.87,-144.21 228.77,-133.67 222.44,-136.66"/>
+<path fill="none" stroke="#6666ff" d="M262.77,-107.95C266.58,-116.03 271.23,-125.88 275.48,-134.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="272.44,-136.66 279.87,-144.21 278.77,-133.67 272.44,-136.66"/>
 </g>
 </g>
 </svg>
@@ -265,8 +301,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

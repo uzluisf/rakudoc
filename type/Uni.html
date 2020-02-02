@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_Uni">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_Uni">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/Uni.pod6'">
@@ -114,17 +144,17 @@
 <h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>Uni</code></figcaption>
-  <svg width="322pt" height="260pt"
- viewBox="0.00 0.00 321.64 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="332pt" height="260pt"
+ viewBox="0.00 0.00 331.64 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 317.64,-256 317.64,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 327.64,-256 327.64,4 -4,4"/>
 <!-- Uni -->
 <g id="node1" class="node">
 <title>Uni</title>
 <g id="a_node1"><a xlink:href="/type/Uni" xlink:title="Uni">
-<ellipse fill="none" stroke="#000000" cx="147.9" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="147.9" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Uni</text>
+<ellipse fill="none" stroke="#000000" cx="165.1" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="165.1" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Uni</text>
 </a>
 </g>
 </g>
@@ -132,121 +162,121 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="46.9" cy="-162" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="46.9" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="64.1" cy="-162" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="64.1" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Uni&#45;&gt;Any -->
 <g id="edge1" class="edge">
 <title>Uni&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M129.84,-103.51C114.24,-114.33 91.47,-130.11 73.73,-142.4"/>
-<polygon fill="#000000" stroke="#000000" points="71.71,-139.55 65.48,-148.12 75.69,-145.3 71.71,-139.55"/>
+<path fill="none" stroke="#000000" d="M147.04,-103.51C131.44,-114.33 108.67,-130.11 90.93,-142.4"/>
+<polygon fill="#000000" stroke="#000000" points="88.91,-139.55 82.68,-148.12 92.89,-145.3 88.91,-139.55"/>
 </g>
 <!-- Positional -->
 <g id="node4" class="node">
 <title>Positional</title>
 <g id="a_node4"><a xlink:href="/type/Positional" xlink:title="Positional">
-<ellipse fill="none" stroke="#6666ff" cx="147.9" cy="-162" rx="53.89" ry="18"/>
-<text text-anchor="middle" x="147.9" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Positional</text>
+<ellipse fill="none" stroke="#6666ff" cx="165.1" cy="-162" rx="53.89" ry="18"/>
+<text text-anchor="middle" x="165.1" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Positional</text>
 </a>
 </g>
 </g>
 <!-- Uni&#45;&gt;Positional -->
 <g id="edge7" class="edge">
 <title>Uni&#45;&gt;Positional</title>
-<path fill="none" stroke="#6666ff" d="M147.9,-108.3C147.9,-116.02 147.9,-125.29 147.9,-133.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="144.4,-133.9 147.9,-143.9 151.4,-133.9 144.4,-133.9"/>
+<path fill="none" stroke="#6666ff" d="M165.1,-108.3C165.1,-116.02 165.1,-125.29 165.1,-133.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="161.6,-133.9 165.1,-143.9 168.6,-133.9 161.6,-133.9"/>
 </g>
 <!-- Stringy -->
 <g id="node5" class="node">
 <title>Stringy</title>
 <g id="a_node5"><a xlink:href="/type/Stringy" xlink:title="Stringy">
-<ellipse fill="none" stroke="#6666ff" cx="262.9" cy="-162" rx="43.59" ry="18"/>
-<text text-anchor="middle" x="262.9" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Stringy</text>
+<ellipse fill="none" stroke="#6666ff" cx="280.1" cy="-162" rx="43.59" ry="18"/>
+<text text-anchor="middle" x="280.1" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Stringy</text>
 </a>
 </g>
 </g>
 <!-- Uni&#45;&gt;Stringy -->
 <g id="edge8" class="edge">
 <title>Uni&#45;&gt;Stringy</title>
-<path fill="none" stroke="#6666ff" d="M167.15,-102.72C184.41,-113.23 210.1,-128.86 230.52,-141.29"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="228.84,-144.37 239.2,-146.58 232.48,-138.39 228.84,-144.37"/>
+<path fill="none" stroke="#6666ff" d="M184.35,-102.72C201.61,-113.23 227.3,-128.86 247.72,-141.29"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="246.04,-144.37 256.4,-146.58 249.68,-138.39 246.04,-144.37"/>
 </g>
 <!-- Mu -->
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="46.9" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="46.9" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="64.1" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="64.1" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
 <g id="edge2" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M46.9,-180.3C46.9,-188.02 46.9,-197.29 46.9,-205.89"/>
-<polygon fill="#000000" stroke="#000000" points="43.4,-205.9 46.9,-215.9 50.4,-205.9 43.4,-205.9"/>
-</g>
-<!-- NFD -->
-<g id="node6" class="node">
-<title>NFD</title>
-<g id="a_node6"><a xlink:href="/type/NFD" xlink:title="NFD">
-<ellipse fill="none" stroke="#000000" cx="29.9" cy="-18" rx="29.8" ry="18"/>
-<text text-anchor="middle" x="29.9" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFD</text>
-</a>
-</g>
-</g>
-<!-- NFD&#45;&gt;Uni -->
-<g id="edge3" class="edge">
-<title>NFD&#45;&gt;Uni</title>
-<path fill="none" stroke="#000000" d="M50.45,-31.19C69.63,-42.57 98.42,-59.65 119.73,-72.29"/>
-<polygon fill="#000000" stroke="#000000" points="117.98,-75.32 128.36,-77.41 121.55,-69.3 117.98,-75.32"/>
-</g>
-<!-- NFC -->
-<g id="node7" class="node">
-<title>NFC</title>
-<g id="a_node7"><a xlink:href="/type/NFC" xlink:title="NFC">
-<ellipse fill="none" stroke="#000000" cx="106.9" cy="-18" rx="29.5" ry="18"/>
-<text text-anchor="middle" x="106.9" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFC</text>
-</a>
-</g>
-</g>
-<!-- NFC&#45;&gt;Uni -->
-<g id="edge4" class="edge">
-<title>NFC&#45;&gt;Uni</title>
-<path fill="none" stroke="#000000" d="M116.41,-35.24C121.43,-43.81 127.69,-54.51 133.31,-64.1"/>
-<polygon fill="#000000" stroke="#000000" points="130.37,-65.99 138.44,-72.85 136.41,-62.45 130.37,-65.99"/>
+<path fill="none" stroke="#000000" d="M64.1,-180.3C64.1,-188.02 64.1,-197.29 64.1,-205.89"/>
+<polygon fill="#000000" stroke="#000000" points="60.6,-205.9 64.1,-215.9 67.6,-205.9 60.6,-205.9"/>
 </g>
 <!-- NFKC -->
-<g id="node8" class="node">
+<g id="node6" class="node">
 <title>NFKC</title>
-<g id="a_node8"><a xlink:href="/type/NFKC" xlink:title="NFKC">
-<ellipse fill="none" stroke="#000000" cx="188.9" cy="-18" rx="35.19" ry="18"/>
-<text text-anchor="middle" x="188.9" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFKC</text>
+<g id="a_node6"><a xlink:href="/type/NFKC" xlink:title="NFKC">
+<ellipse fill="none" stroke="#000000" cx="35.1" cy="-18" rx="35.19" ry="18"/>
+<text text-anchor="middle" x="35.1" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFKC</text>
 </a>
 </g>
 </g>
 <!-- NFKC&#45;&gt;Uni -->
-<g id="edge5" class="edge">
+<g id="edge3" class="edge">
 <title>NFKC&#45;&gt;Uni</title>
-<path fill="none" stroke="#000000" d="M179.18,-35.59C174.16,-44.17 167.92,-54.81 162.35,-64.33"/>
-<polygon fill="#000000" stroke="#000000" points="159.3,-62.61 157.26,-73.01 165.34,-66.15 159.3,-62.61"/>
+<path fill="none" stroke="#000000" d="M58.34,-31.51C80,-43.18 112.4,-60.62 135.82,-73.23"/>
+<polygon fill="#000000" stroke="#000000" points="134.16,-76.32 144.62,-77.98 137.48,-70.15 134.16,-76.32"/>
 </g>
 <!-- NFKD -->
-<g id="node9" class="node">
+<g id="node7" class="node">
 <title>NFKD</title>
-<g id="a_node9"><a xlink:href="/type/NFKD" xlink:title="NFKD">
-<ellipse fill="none" stroke="#000000" cx="277.9" cy="-18" rx="36" ry="18"/>
-<text text-anchor="middle" x="277.9" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFKD</text>
+<g id="a_node7"><a xlink:href="/type/NFKD" xlink:title="NFKD">
+<ellipse fill="none" stroke="#000000" cx="124.1" cy="-18" rx="36" ry="18"/>
+<text text-anchor="middle" x="124.1" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFKD</text>
 </a>
 </g>
 </g>
 <!-- NFKD&#45;&gt;Uni -->
-<g id="edge6" class="edge">
+<g id="edge4" class="edge">
 <title>NFKD&#45;&gt;Uni</title>
-<path fill="none" stroke="#000000" d="M254.36,-31.68C232.75,-43.31 200.65,-60.59 177.35,-73.14"/>
-<polygon fill="#000000" stroke="#000000" points="175.42,-70.21 168.27,-78.03 178.74,-76.37 175.42,-70.21"/>
+<path fill="none" stroke="#000000" d="M133.81,-35.59C138.84,-44.17 145.07,-54.81 150.65,-64.33"/>
+<polygon fill="#000000" stroke="#000000" points="147.66,-66.15 155.73,-73.01 153.7,-62.61 147.66,-66.15"/>
+</g>
+<!-- NFC -->
+<g id="node8" class="node">
+<title>NFC</title>
+<g id="a_node8"><a xlink:href="/type/NFC" xlink:title="NFC">
+<ellipse fill="none" stroke="#000000" cx="207.1" cy="-18" rx="29.5" ry="18"/>
+<text text-anchor="middle" x="207.1" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFC</text>
+</a>
+</g>
+</g>
+<!-- NFC&#45;&gt;Uni -->
+<g id="edge5" class="edge">
+<title>NFC&#45;&gt;Uni</title>
+<path fill="none" stroke="#000000" d="M197.36,-35.24C192.21,-43.81 185.79,-54.51 180.04,-64.1"/>
+<polygon fill="#000000" stroke="#000000" points="176.93,-62.48 174.79,-72.85 182.93,-66.08 176.93,-62.48"/>
+</g>
+<!-- NFD -->
+<g id="node9" class="node">
+<title>NFD</title>
+<g id="a_node9"><a xlink:href="/type/NFD" xlink:title="NFD">
+<ellipse fill="none" stroke="#000000" cx="284.1" cy="-18" rx="29.8" ry="18"/>
+<text text-anchor="middle" x="284.1" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">NFD</text>
+</a>
+</g>
+</g>
+<!-- NFD&#45;&gt;Uni -->
+<g id="edge6" class="edge">
+<title>NFD&#45;&gt;Uni</title>
+<path fill="none" stroke="#000000" d="M263.37,-31.19C244.02,-42.57 215,-59.65 193.5,-72.29"/>
+<polygon fill="#000000" stroke="#000000" points="191.64,-69.32 184.8,-77.41 195.19,-75.36 191.64,-69.32"/>
 </g>
 </g>
 </svg>
@@ -296,8 +326,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

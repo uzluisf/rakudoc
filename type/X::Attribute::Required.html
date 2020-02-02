@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_X__Attribute__Required">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_X__Attribute__Required">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/X::Attribute::Required.pod6'">
@@ -103,56 +133,17 @@
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="meta class perl6fe"><span class="storage type class perl6fe"><span>class</span></span><span>&nbsp;</span><span class="entity name type class perl6fe"><span>Uses-required</span></span></span><span>&nbsp;</span><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>{</span></span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage modifier declarator perl6fe"><span>has</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>.</span></span><span class="variable other identifier perl6fe"><span>req</span></span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>is</span></span><span>&nbsp;</span><span class="entity name type trait perl6fe"><span>required</span></span><span>(</span><span class="string quoted double perl6fe"><span class="punctuation definition string begin perl6fe"><span>&quot;</span></span><span>because&nbsp;yes</span><span class="punctuation definition string end perl6fe"><span>&quot;</span></span></span><span>)</span></span></span></div><div class="line"><span class="source perl6fe"><span class="meta block perl6fe"><span class="punctuation definition block perl6fe"><span>}</span></span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="storage modifier declarator perl6fe"><span>my</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="variable other identifier perl6fe"><span>object</span></span></span><span>&nbsp;</span><span class="storage modifier assignment perl6fe"><span>=</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Uses-required</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>new</span></span><span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│</span></span></div><div class="line"><span class="source perl6fe"><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;«(exit&nbsp;code&nbsp;1)&nbsp;The&nbsp;attribute&nbsp;&#39;$!req&#39;&nbsp;is&nbsp;required&nbsp;because&nbsp;because&nbsp;yes,␤</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source perl6fe"><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;but&nbsp;you&nbsp;did&nbsp;not&nbsp;provide&nbsp;a&nbsp;value&nbsp;for&nbsp;it.␤»</span><span>&nbsp;</span></span></span></div></pre><h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>X::Attribute::Required</code></figcaption>
-  <svg width="226pt" height="260pt"
- viewBox="0.00 0.00 226.38 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="252pt" height="260pt"
+ viewBox="0.00 0.00 252.39 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 222.38,-256 222.38,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 248.39,-256 248.39,4 -4,4"/>
 <!-- X::Attribute::Required -->
 <g id="node1" class="node">
 <title>X::Attribute::Required</title>
 <g id="a_node1"><a xlink:href="/type/X::Attribute::Required" xlink:title="X::Attribute::Required">
 <ellipse fill="none" stroke="#000000" cx="109.19" cy="-18" rx="109.38" ry="18"/>
 <text text-anchor="middle" x="109.19" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::Attribute::Required</text>
-</a>
-</g>
-</g>
-<!-- Exception -->
-<g id="node4" class="node">
-<title>Exception</title>
-<g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
-<ellipse fill="none" stroke="#000000" cx="57.19" cy="-90" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="57.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
-</a>
-</g>
-</g>
-<!-- X::Attribute::Required&#45;&gt;Exception -->
-<g id="edge1" class="edge">
-<title>X::Attribute::Required&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M96.6,-35.95C90.34,-44.37 82.66,-54.72 75.74,-64.03"/>
-<polygon fill="#000000" stroke="#000000" points="72.82,-62.1 69.66,-72.21 78.44,-66.27 72.82,-62.1"/>
-</g>
-<!-- MOP -->
-<g id="node5" class="node">
-<title>MOP</title>
-<g id="a_node5"><a xlink:href="/type/MOP" xlink:title="MOP">
-<ellipse fill="none" stroke="#000000" cx="161.19" cy="-90" rx="31.4" ry="18"/>
-<text text-anchor="middle" x="161.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">MOP</text>
-</a>
-</g>
-</g>
-<!-- X::Attribute::Required&#45;&gt;MOP -->
-<g id="edge5" class="edge">
-<title>X::Attribute::Required&#45;&gt;MOP</title>
-<path fill="none" stroke="#6666ff" d="M121.78,-35.95C128.22,-44.62 136.18,-55.33 143.25,-64.85"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="140.66,-67.23 149.43,-73.17 146.28,-63.06 140.66,-67.23"/>
-</g>
-<!-- Mu -->
-<g id="node2" class="node">
-<title>Mu</title>
-<g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="109.19" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="109.19" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -165,23 +156,68 @@
 </a>
 </g>
 </g>
-<!-- Any&#45;&gt;Mu -->
+<!-- X::Attribute::Required&#45;&gt;Any -->
 <g id="edge2" class="edge">
+<title>X::Attribute::Required&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M88.94,-35.77C70.19,-51.3 45.19,-72 45.19,-72 45.19,-72 45.19,-108 45.19,-108 45.19,-108 66.41,-125.58 84.42,-140.49"/>
+<polygon fill="#000000" stroke="#000000" points="82.44,-143.39 92.38,-147.07 86.91,-138 82.44,-143.39"/>
+</g>
+<!-- Exception -->
+<g id="node4" class="node">
+<title>Exception</title>
+<g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
+<ellipse fill="none" stroke="#000000" cx="109.19" cy="-90" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="109.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
+</a>
+</g>
+</g>
+<!-- X::Attribute::Required&#45;&gt;Exception -->
+<g id="edge1" class="edge">
+<title>X::Attribute::Required&#45;&gt;Exception</title>
+<path fill="none" stroke="#000000" d="M109.19,-36.3C109.19,-44.02 109.19,-53.29 109.19,-61.89"/>
+<polygon fill="#000000" stroke="#000000" points="105.69,-61.9 109.19,-71.9 112.69,-61.9 105.69,-61.9"/>
+</g>
+<!-- MOP -->
+<g id="node5" class="node">
+<title>MOP</title>
+<g id="a_node5"><a xlink:href="/type/MOP" xlink:title="MOP">
+<ellipse fill="none" stroke="#000000" cx="213.19" cy="-90" rx="31.4" ry="18"/>
+<text text-anchor="middle" x="213.19" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">MOP</text>
+</a>
+</g>
+</g>
+<!-- X::Attribute::Required&#45;&gt;MOP -->
+<g id="edge6" class="edge">
+<title>X::Attribute::Required&#45;&gt;MOP</title>
+<path fill="none" stroke="#6666ff" d="M133.84,-35.59C149.24,-45.96 169.13,-59.34 185.14,-70.12"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="183.33,-73.12 193.58,-75.8 187.24,-67.32 183.33,-73.12"/>
+</g>
+<!-- Mu -->
+<g id="node2" class="node">
+<title>Mu</title>
+<g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
+<ellipse fill="none" stroke="#000000" cx="109.19" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="109.19" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+</a>
+</g>
+</g>
+<!-- Any&#45;&gt;Mu -->
+<g id="edge3" class="edge">
 <title>Any&#45;&gt;Mu</title>
 <path fill="none" stroke="#000000" d="M109.19,-180.3C109.19,-188.02 109.19,-197.29 109.19,-205.89"/>
 <polygon fill="#000000" stroke="#000000" points="105.69,-205.9 109.19,-215.9 112.69,-205.9 105.69,-205.9"/>
 </g>
 <!-- Exception&#45;&gt;Any -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>Exception&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M69.51,-107.59C76.11,-116.47 84.35,-127.56 91.61,-137.33"/>
-<polygon fill="#000000" stroke="#000000" points="88.9,-139.55 97.67,-145.49 94.51,-135.37 88.9,-139.55"/>
+<path fill="none" stroke="#000000" d="M109.19,-108.3C109.19,-116.02 109.19,-125.29 109.19,-133.89"/>
+<polygon fill="#000000" stroke="#000000" points="105.69,-133.9 109.19,-143.9 112.69,-133.9 105.69,-133.9"/>
 </g>
 <!-- MOP&#45;&gt;Any -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>MOP&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M149.39,-106.88C142.81,-115.74 134.48,-126.96 127.1,-136.88"/>
-<polygon fill="#000000" stroke="#000000" points="124.1,-135.06 120.94,-145.18 129.72,-139.24 124.1,-135.06"/>
+<path fill="none" stroke="#000000" d="M193.63,-104.17C177.45,-115.06 154.29,-130.64 136.32,-142.74"/>
+<polygon fill="#000000" stroke="#000000" points="134.31,-139.88 127.96,-148.36 138.21,-145.68 134.31,-139.88"/>
 </g>
 </g>
 </svg>
@@ -251,8 +287,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_X__IO__Chmod">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_X__IO__Chmod">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/X::IO::Chmod.pod6'">
@@ -94,11 +124,11 @@
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="routine name perl6fe"><span>Failed</span></span><span>&nbsp;</span><span class="support function perl6fe"><span>to</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>set</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>the</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>mode</span></span><span>&nbsp;</span><span class="storage modifier type constraints perl6fe"><span>of</span></span><span>&nbsp;</span><span class="string quoted single single perl6fe"><span class="punctuation definition string begin perl6fe"><span>&#39;</span></span><span>/home/other</span><span class="punctuation definition string end perl6fe"><span>&#39;</span></span></span><span>&nbsp;</span><span class="support function perl6fe"><span>to</span></span><span>&nbsp;</span><span class="string quoted single single perl6fe"><span class="punctuation definition string begin perl6fe"><span>&#39;</span></span><span>0o777</span><span class="punctuation definition string end perl6fe"><span>&#39;</span></span></span><span class="keyword operator generic perl6fe"><span>:</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>Permission</span></span><span>&nbsp;</span><span class="routine name perl6fe"><span>denied</span></span></span></div></pre><h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>X::IO::Chmod</code></figcaption>
-  <svg width="227pt" height="404pt"
- viewBox="0.00 0.00 226.89 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="236pt" height="404pt"
+ viewBox="0.00 0.00 235.89 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 222.89,-400 222.89,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 231.89,-400 231.89,4 -4,4"/>
 <!-- X::IO::Chmod -->
 <g id="node1" class="node">
 <title>X::IO::Chmod</title>
@@ -112,44 +142,50 @@
 <g id="node4" class="node">
 <title>Exception</title>
 <g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
-<ellipse fill="none" stroke="#000000" cx="94.49" cy="-234" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="94.49" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
+<ellipse fill="none" stroke="#000000" cx="71.49" cy="-234" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="71.49" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
 </a>
 </g>
 </g>
 <!-- X::IO::Chmod&#45;&gt;Exception -->
 <g id="edge1" class="edge">
 <title>X::IO::Chmod&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M69.46,-36.15C69.9,-73.34 79.14,-161.63 86.97,-206.23"/>
-<polygon fill="#000000" stroke="#000000" points="83.53,-206.88 88.82,-216.06 90.41,-205.59 83.53,-206.88"/>
+<path fill="none" stroke="#000000" d="M63.74,-36.15C56.65,-73.26 56.12,-161.25 62.15,-205.95"/>
+<polygon fill="#000000" stroke="#000000" points="58.74,-206.75 63.78,-216.06 65.65,-205.64 58.74,-206.75"/>
 </g>
 <!-- X::IO::Chmod&#45;&gt;Exception -->
 <g id="edge2" class="edge">
 <title>X::IO::Chmod&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M77.21,-36.15C84.73,-73.17 94.42,-160.82 96.24,-205.61"/>
-<polygon fill="#000000" stroke="#000000" points="92.75,-205.87 96.53,-215.77 99.75,-205.67 92.75,-205.87"/>
+<path fill="none" stroke="#000000" d="M71.49,-36.15C71.49,-73.17 71.49,-160.82 71.49,-205.61"/>
+<polygon fill="#000000" stroke="#000000" points="67.99,-205.77 71.49,-215.77 74.99,-205.77 67.99,-205.77"/>
+</g>
+<!-- X::IO::Chmod&#45;&gt;Exception -->
+<g id="edge3" class="edge">
+<title>X::IO::Chmod&#45;&gt;Exception</title>
+<path fill="none" stroke="#000000" d="M79.25,-36.15C86.34,-73.26 86.87,-161.25 80.83,-205.95"/>
+<polygon fill="#000000" stroke="#000000" points="77.34,-205.64 79.21,-216.06 84.25,-206.75 77.34,-205.64"/>
 </g>
 <!-- X::IO -->
 <g id="node6" class="node">
 <title>X::IO</title>
 <g id="a_node6"><a xlink:href="/type/X::IO" xlink:title="X::IO">
-<ellipse fill="none" stroke="#6666ff" cx="141.49" cy="-90" rx="33.29" ry="18"/>
-<text text-anchor="middle" x="141.49" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::IO</text>
+<ellipse fill="none" stroke="#6666ff" cx="150.49" cy="-90" rx="33.29" ry="18"/>
+<text text-anchor="middle" x="150.49" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::IO</text>
 </a>
 </g>
 </g>
 <!-- X::IO::Chmod&#45;&gt;X::IO -->
-<g id="edge7" class="edge">
+<g id="edge8" class="edge">
 <title>X::IO::Chmod&#45;&gt;X::IO</title>
-<path fill="none" stroke="#6666ff" d="M88.08,-35.59C97.23,-44.74 108.73,-56.24 118.71,-66.22"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="116.44,-68.89 125.98,-73.49 121.39,-63.94 116.44,-68.89"/>
+<path fill="none" stroke="#6666ff" d="M90.22,-35.59C100.97,-45.12 114.59,-57.19 126.16,-67.44"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="123.98,-70.18 133.79,-74.2 128.62,-64.94 123.98,-70.18"/>
 </g>
 <!-- Mu -->
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="94.49" cy="-378" rx="27" ry="18"/>
-<text text-anchor="middle" x="94.49" y="-374.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="71.49" cy="-378" rx="27" ry="18"/>
+<text text-anchor="middle" x="71.49" y="-374.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -157,49 +193,49 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="94.49" cy="-306" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="94.49" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="71.49" cy="-306" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="71.49" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M94.49,-324.3C94.49,-332.02 94.49,-341.29 94.49,-349.89"/>
-<polygon fill="#000000" stroke="#000000" points="90.99,-349.9 94.49,-359.9 97.99,-349.9 90.99,-349.9"/>
+<path fill="none" stroke="#000000" d="M71.49,-324.3C71.49,-332.02 71.49,-341.29 71.49,-349.89"/>
+<polygon fill="#000000" stroke="#000000" points="67.99,-349.9 71.49,-359.9 74.99,-349.9 67.99,-349.9"/>
 </g>
 <!-- Exception&#45;&gt;Any -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>Exception&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M94.49,-252.3C94.49,-260.02 94.49,-269.29 94.49,-277.89"/>
-<polygon fill="#000000" stroke="#000000" points="90.99,-277.9 94.49,-287.9 97.99,-277.9 90.99,-277.9"/>
+<path fill="none" stroke="#000000" d="M71.49,-252.3C71.49,-260.02 71.49,-269.29 71.49,-277.89"/>
+<polygon fill="#000000" stroke="#000000" points="67.99,-277.9 71.49,-287.9 74.99,-277.9 67.99,-277.9"/>
 </g>
 <!-- X::OS -->
 <g id="node5" class="node">
 <title>X::OS</title>
 <g id="a_node5"><a xlink:href="/type/X::OS" xlink:title="X::OS">
-<ellipse fill="none" stroke="#6666ff" cx="182.49" cy="-162" rx="36.29" ry="18"/>
-<text text-anchor="middle" x="182.49" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::OS</text>
+<ellipse fill="none" stroke="#6666ff" cx="191.49" cy="-162" rx="36.29" ry="18"/>
+<text text-anchor="middle" x="191.49" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::OS</text>
 </a>
 </g>
 </g>
 <!-- X::OS&#45;&gt;Exception -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>X::OS&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M163.83,-177.85C151.88,-187.35 136.15,-199.86 122.69,-210.57"/>
-<polygon fill="#000000" stroke="#000000" points="120.31,-207.99 114.66,-216.96 124.67,-213.47 120.31,-207.99"/>
+<path fill="none" stroke="#000000" d="M168.92,-176.17C151.26,-186.47 126.39,-200.98 106.2,-212.75"/>
+<polygon fill="#000000" stroke="#000000" points="104.17,-209.89 97.3,-217.95 107.7,-215.93 104.17,-209.89"/>
 </g>
 <!-- X::IO&#45;&gt;Exception -->
-<g id="edge6" class="edge">
+<g id="edge7" class="edge">
 <title>X::IO&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M135.92,-107.85C127.9,-132.06 113.05,-176.95 103.47,-205.87"/>
-<polygon fill="#000000" stroke="#000000" points="100.03,-205.14 100.21,-215.73 106.67,-207.34 100.03,-205.14"/>
+<path fill="none" stroke="#000000" d="M141.65,-107.74C128.04,-133.52 103.49,-180 103.49,-180 103.49,-180 95.08,-193.93 86.88,-207.51"/>
+<polygon fill="#000000" stroke="#000000" points="83.79,-205.86 81.62,-216.23 89.78,-209.48 83.79,-205.86"/>
 </g>
 <!-- X::IO&#45;&gt;X::OS -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>X::IO&#45;&gt;X::OS</title>
-<path fill="none" stroke="#6666ff" d="M151.21,-107.59C156.11,-115.96 162.16,-126.29 167.63,-135.63"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="164.77,-137.67 172.85,-144.53 170.81,-134.13 164.77,-137.67"/>
+<path fill="none" stroke="#6666ff" d="M160.21,-107.59C165.11,-115.96 171.16,-126.29 176.63,-135.63"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="173.77,-137.67 181.85,-144.53 179.81,-134.13 173.77,-137.67"/>
 </g>
 </g>
 </svg>
@@ -269,8 +305,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

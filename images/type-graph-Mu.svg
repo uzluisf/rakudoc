@@ -13,40 +13,40 @@
 <g id="node1" class="node">
 <title>Mu</title>
 <g id="a_node1"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="94.45" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="94.45" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="75.6" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="75.6" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
-</g>
-<!-- Junction -->
-<g id="node2" class="node">
-<title>Junction</title>
-<g id="a_node2"><a xlink:href="/type/Junction" xlink:title="Junction">
-<ellipse fill="none" stroke="#000000" cx="47.45" cy="-18" rx="47.39" ry="18"/>
-<text text-anchor="middle" x="47.45" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Junction</text>
-</a>
-</g>
-</g>
-<!-- Junction&#45;&gt;Mu -->
-<g id="edge1" class="edge">
-<title>Junction&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M58.58,-35.59C64.4,-44.26 71.64,-55.03 78.08,-64.62"/>
-<polygon fill="#000000" stroke="#000000" points="75.23,-66.66 83.71,-73.01 81.04,-62.76 75.23,-66.66"/>
 </g>
 <!-- Any -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>Any</title>
-<g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="141.45" cy="-18" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="141.45" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<g id="a_node2"><a xlink:href="/type/Any" xlink:title="Any">
+<ellipse fill="none" stroke="#000000" cx="28.6" cy="-18" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="28.6" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
-<g id="edge2" class="edge">
+<g id="edge1" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M130.78,-34.88C124.89,-43.66 117.45,-54.74 110.84,-64.58"/>
-<polygon fill="#000000" stroke="#000000" points="107.74,-62.93 105.07,-73.18 113.55,-66.83 107.74,-62.93"/>
+<path fill="none" stroke="#000000" d="M39.26,-34.88C45.15,-43.66 52.59,-54.74 59.2,-64.58"/>
+<polygon fill="#000000" stroke="#000000" points="56.49,-66.83 64.97,-73.18 62.31,-62.93 56.49,-66.83"/>
+</g>
+<!-- Junction -->
+<g id="node3" class="node">
+<title>Junction</title>
+<g id="a_node3"><a xlink:href="/type/Junction" xlink:title="Junction">
+<ellipse fill="none" stroke="#000000" cx="122.6" cy="-18" rx="47.39" ry="18"/>
+<text text-anchor="middle" x="122.6" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Junction</text>
+</a>
+</g>
+</g>
+<!-- Junction&#45;&gt;Mu -->
+<g id="edge2" class="edge">
+<title>Junction&#45;&gt;Mu</title>
+<path fill="none" stroke="#000000" d="M111.46,-35.59C105.64,-44.26 98.41,-55.03 91.96,-64.62"/>
+<polygon fill="#000000" stroke="#000000" points="89,-62.76 86.33,-73.01 94.81,-66.66 89,-62.76"/>
 </g>
 </g>
 </svg>

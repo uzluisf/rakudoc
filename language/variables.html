@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item selected darker-green" href="/language.html"> Language </a> <a class="menu-item " href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__language_variables">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__language_variables">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Language/variables.pod6'">
@@ -131,25 +161,26 @@
          <tr class="toc-level-4"><td class="toc-number">5.3.3.6</td><td class="toc-text"><a href="#$*KERNEL"><code class="pod-code-inline">$*KERNEL</code></a></td></tr>
           <tr class="toc-level-4"><td class="toc-number">5.3.3.7</td><td class="toc-text"><a href="#$*DISTRO"><code class="pod-code-inline">$*DISTRO</code></a></td></tr>
                 <tr class="toc-level-4"><td class="toc-number">5.3.3.8</td><td class="toc-text"><a href="#$*VM"><code class="pod-code-inline">$*VM</code></a></td></tr>
-         <tr class="toc-level-4"><td class="toc-number">5.3.3.9</td><td class="toc-text"><a href="#$*PERL"><code class="pod-code-inline">$*PERL</code></a></td></tr>
-            <tr class="toc-level-4"><td class="toc-number">5.3.3.10</td><td class="toc-text"><a href="#$*PID"><code class="pod-code-inline">$*PID</code></a></td></tr>
-   <tr class="toc-level-4"><td class="toc-number">5.3.3.11</td><td class="toc-text"><a href="#$*PROGRAM-NAME"><code class="pod-code-inline">$*PROGRAM-NAME</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.12</td><td class="toc-text"><a href="#$*PROGRAM"><code class="pod-code-inline">$*PROGRAM</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.13</td><td class="toc-text"><a href="#&amp;*EXIT"><code class="pod-code-inline">&amp;*EXIT</code></a></td></tr>
-       <tr class="toc-level-4"><td class="toc-number">5.3.3.14</td><td class="toc-text"><a href="#$*EXECUTABLE"><code class="pod-code-inline">$*EXECUTABLE</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.15</td><td class="toc-text"><a href="#$*EXECUTABLE-NAME"><code class="pod-code-inline">$*EXECUTABLE-NAME</code></a></td></tr>
-       <tr class="toc-level-4"><td class="toc-number">5.3.3.16</td><td class="toc-text"><a href="#$*USAGE"><code class="pod-code-inline">$*USAGE</code></a></td></tr>
-           <tr class="toc-level-4"><td class="toc-number">5.3.3.17</td><td class="toc-text"><a href="#$*USER"><code class="pod-code-inline">$*USER</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.18</td><td class="toc-text"><a href="#$*GROUP"><code class="pod-code-inline">$*GROUP</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.19</td><td class="toc-text"><a href="#$*HOMEDRIVE"><code class="pod-code-inline">$*HOMEDRIVE</code></a></td></tr>
-   <tr class="toc-level-4"><td class="toc-number">5.3.3.20</td><td class="toc-text"><a href="#$*HOMEPATH"><code class="pod-code-inline">$*HOMEPATH</code></a></td></tr>
-   <tr class="toc-level-4"><td class="toc-number">5.3.3.21</td><td class="toc-text"><a href="#$*HOME"><code class="pod-code-inline">$*HOME</code></a></td></tr>
-            <tr class="toc-level-4"><td class="toc-number">5.3.3.22</td><td class="toc-text"><a href="#$*SPEC"><code class="pod-code-inline">$*SPEC</code></a></td></tr>
-         <tr class="toc-level-4"><td class="toc-number">5.3.3.23</td><td class="toc-text"><a href="#$*TMPDIR"><code class="pod-code-inline">$*TMPDIR</code></a></td></tr>
-       <tr class="toc-level-4"><td class="toc-number">5.3.3.24</td><td class="toc-text"><a href="#$*THREAD"><code class="pod-code-inline">$*THREAD</code></a></td></tr>
-     <tr class="toc-level-4"><td class="toc-number">5.3.3.25</td><td class="toc-text"><a href="#$*SCHEDULER"><code class="pod-code-inline">$*SCHEDULER</code></a></td></tr>
-                  <tr class="toc-level-4"><td class="toc-number">5.3.3.26</td><td class="toc-text"><a href="#$*SAMPLER"><code class="pod-code-inline">$*SAMPLER</code></a></td></tr>
-       <tr class="toc-level-4"><td class="toc-number">5.3.3.27</td><td class="toc-text"><a href="#$*USAGE"><code class="pod-code-inline">$*USAGE</code></a></td></tr>
+         <tr class="toc-level-4"><td class="toc-number">5.3.3.9</td><td class="toc-text"><a href="#$*RAKU"><code class="pod-code-inline">$*RAKU</code></a></td></tr>
+            <tr class="toc-level-4"><td class="toc-number">5.3.3.10</td><td class="toc-text"><a href="#$*PERL"><code class="pod-code-inline">$*PERL</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.11</td><td class="toc-text"><a href="#$*PID"><code class="pod-code-inline">$*PID</code></a></td></tr>
+   <tr class="toc-level-4"><td class="toc-number">5.3.3.12</td><td class="toc-text"><a href="#$*PROGRAM-NAME"><code class="pod-code-inline">$*PROGRAM-NAME</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.13</td><td class="toc-text"><a href="#$*PROGRAM"><code class="pod-code-inline">$*PROGRAM</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.14</td><td class="toc-text"><a href="#&amp;*EXIT"><code class="pod-code-inline">&amp;*EXIT</code></a></td></tr>
+       <tr class="toc-level-4"><td class="toc-number">5.3.3.15</td><td class="toc-text"><a href="#$*EXECUTABLE"><code class="pod-code-inline">$*EXECUTABLE</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.16</td><td class="toc-text"><a href="#$*EXECUTABLE-NAME"><code class="pod-code-inline">$*EXECUTABLE-NAME</code></a></td></tr>
+       <tr class="toc-level-4"><td class="toc-number">5.3.3.17</td><td class="toc-text"><a href="#$*USAGE"><code class="pod-code-inline">$*USAGE</code></a></td></tr>
+           <tr class="toc-level-4"><td class="toc-number">5.3.3.18</td><td class="toc-text"><a href="#$*USER"><code class="pod-code-inline">$*USER</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.19</td><td class="toc-text"><a href="#$*GROUP"><code class="pod-code-inline">$*GROUP</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.20</td><td class="toc-text"><a href="#$*HOMEDRIVE"><code class="pod-code-inline">$*HOMEDRIVE</code></a></td></tr>
+   <tr class="toc-level-4"><td class="toc-number">5.3.3.21</td><td class="toc-text"><a href="#$*HOMEPATH"><code class="pod-code-inline">$*HOMEPATH</code></a></td></tr>
+   <tr class="toc-level-4"><td class="toc-number">5.3.3.22</td><td class="toc-text"><a href="#$*HOME"><code class="pod-code-inline">$*HOME</code></a></td></tr>
+            <tr class="toc-level-4"><td class="toc-number">5.3.3.23</td><td class="toc-text"><a href="#$*SPEC"><code class="pod-code-inline">$*SPEC</code></a></td></tr>
+         <tr class="toc-level-4"><td class="toc-number">5.3.3.24</td><td class="toc-text"><a href="#$*TMPDIR"><code class="pod-code-inline">$*TMPDIR</code></a></td></tr>
+       <tr class="toc-level-4"><td class="toc-number">5.3.3.25</td><td class="toc-text"><a href="#$*THREAD"><code class="pod-code-inline">$*THREAD</code></a></td></tr>
+     <tr class="toc-level-4"><td class="toc-number">5.3.3.26</td><td class="toc-text"><a href="#$*SCHEDULER"><code class="pod-code-inline">$*SCHEDULER</code></a></td></tr>
+                  <tr class="toc-level-4"><td class="toc-number">5.3.3.27</td><td class="toc-text"><a href="#$*SAMPLER"><code class="pod-code-inline">$*SAMPLER</code></a></td></tr>
+       <tr class="toc-level-4"><td class="toc-number">5.3.3.28</td><td class="toc-text"><a href="#$*USAGE"><code class="pod-code-inline">$*USAGE</code></a></td></tr>
            <tr class="toc-level-3"><td class="toc-number">5.3.4</td><td class="toc-text"><a href="#Runtime_variables">Runtime variables</a></td></tr>
    <tr class="toc-level-4"><td class="toc-number">5.3.4.1</td><td class="toc-text"><a href="#$*COLLATION"><code class="pod-code-inline">$*COLLATION</code></a></td></tr>
      <tr class="toc-level-4"><td class="toc-number">5.3.4.2</td><td class="toc-text"><a href="#$*TOLERANCE"><code class="pod-code-inline">$*TOLERANCE</code></a></td></tr>
@@ -467,12 +498,15 @@
 <p>This variable contains the current virtual machine running the code, as well as additional information on the inner workings of aforementioned VM.</p>
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>VM</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>precomp-ext</span></span><span>,&nbsp;</span><span class="string quoted double perl6fe"><span class="punctuation definition string begin perl6fe"><span>&quot;</span></span><span>&nbsp;</span><span class="punctuation definition string end perl6fe"><span>&quot;</span></span></span><span>,&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>VM</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>precomp-target</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«moarvm&nbsp;mbc␤»</span></span></span></div></pre><p>These two methods, for instance, will show the extension used in the precompiled bytecode scripts and the target used. This is what is found in the Moar Virtual Machine, but it could also vary with version and implementation. Other VM, such as Java, will show different values for them. <code>$*VM.config</code> includes all configuration values used to create the virtual machine, e.g.</p>
 <pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>VM</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>config</span></span><span class="span keyword operator array words perl6fe"><span>&lt;</span></span><span class="string array words perl6fe"><span>versionmajor</span></span><span class="span keyword operator array words perl6fe"><span>&gt;</span></span><span>,&nbsp;</span><span class="string quoted double perl6fe"><span class="punctuation definition string begin perl6fe"><span>&quot;</span></span><span>.</span><span class="punctuation definition string end perl6fe"><span>&quot;</span></span></span><span>,&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>VM</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>config</span></span><span class="span keyword operator array words perl6fe"><span>&lt;</span></span><span class="string array words perl6fe"><span>versionminor</span></span><span class="span keyword operator array words perl6fe"><span>&gt;</span></span><span>;</span></span></div><div class="line"><span class="source perl6fe"><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«2018.11␤»</span></span></span></div></pre><p>which are the version of the virtual machine, generally the same one as the one used in the interpreter and the overall Raku environment.</p>
-<p><a name="index-entry-$*PERL"></a></p>
+<p><a name="index-entry-$*RAKU"></a></p>
+<h4 id="$*RAKU"><a class="u" href="#___top" title="go to top of document"><code>$*RAKU</code></a></h4>
+<p>This object of the <a href="/type/Raku"><code>Raku</code></a> class contains information on the current implementation of the Raku language:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>RAKU</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>compiler</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>version</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«v2020.01␤»</span></span></span></div></pre><p>but its gist includes the name of the language, followed by the major version of the compiler:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>RAKU</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Raku&nbsp;(6.d)␤»</span></span></span></div></pre><p>It stringifies to <code>Raku</code>:</p>
+<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>RAKU</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>put</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Raku␤»</span></span></span></div></pre><p><a name="index-entry-$*PERL"></a></p>
 <h4 id="$*PERL"><a class="u" href="#___top" title="go to top of document"><code>$*PERL</code></a></h4>
-<p>This object of the <a href="/type/Perl"><code>Perl</code></a> class contains information on the current implementation of the Raku language:</p>
-<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>PERL</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>compiler</span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="routine name perl6fe"><span>version</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«v2018.11.52.g.06156.a.7.ca␤»</span></span></span></div></pre><p>but its gist includes the name of the language, followed by the major version of the compiler:</p>
-<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="support function perl6fe"><span>say</span></span><span>&nbsp;</span><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>PERL</span></span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Raku&nbsp;(6.d)␤»</span></span></span></div></pre><p>It stringifies to <code>Raku</code>:</p>
-<pre class="editor editor-colors"><div class="line"><span class="source perl6fe"><span class="meta variable container perl6fe"><span class="variable other identifier sigil perl6fe"><span>$</span></span><span class="support class twigil perl6fe"><span>*</span></span><span class="variable other identifier perl6fe"><span>PERL</span></span></span><span class="keyword operator generic perl6fe"><span>.</span></span><span class="support function perl6fe"><span>put</span></span><span>;&nbsp;</span><span class="comment line number-sign perl6fe"><span class="punctuation definition comment perl6fe"><span>#</span></span><span>&nbsp;OUTPUT:&nbsp;«Raku␤»</span></span></span></div></pre><p><a name="index-entry-$*PID"></a></p>
+<p>For the foreseeable future, the same as <code>$*RAKU</code>. Will be deprecated at some point.</p>
+<p><a name="index-entry-$*PID"></a></p>
 <h4 id="$*PID"><a class="u" href="#___top" title="go to top of document"><code>$*PID</code></a></h4>
 <p>Object containing an integer describing the current Process IDentifier (operating system dependent).</p>
 <p><a name="index-entry-$*PROGRAM-NAME"></a></p>
@@ -578,8 +612,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

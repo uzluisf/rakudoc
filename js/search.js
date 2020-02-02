@@ -125,6 +125,8 @@ $(function(){
 ,
 { category: "class", value: "List", url: "/type/List" }
 ,
+{ category: "class", value: "Raku", url: "/type/Raku" }
+,
 { category: "class", value: "Code", url: "/type/Code" }
 ,
 { category: "role", value: "Iterable", url: "/type/Iterable" }
@@ -1048,6 +1050,8 @@ $(function(){
 { category: "infix", value: ">=", url: "/routine/>=" }
 ,
 { category: "Routine", value: "?", url: "/routine/%3F" }
+,
+{ category: "infix", value: "?&", url: "/routine/%3F&" }
 ,
 { category: "infix", value: "?? !!", url: "/routine/%3F%3F !!" }
 ,
@@ -4133,6 +4137,8 @@ $(function(){
 ,
 { category: "Reference", value: "$*VM", url: "/language/variables#index-entry-$*VM" }
 ,
+{ category: "Reference", value: "$*RAKU", url: "/language/variables#index-entry-$*RAKU" }
+,
 { category: "Reference", value: "$*PERL", url: "/language/variables#index-entry-$*PERL" }
 ,
 { category: "Reference", value: "$*PID", url: "/language/variables#index-entry-$*PID" }
@@ -5294,6 +5300,8 @@ $(function(){
 { category: "Reference", value: "left (integer bit shift operator)", url: "/language/operators#index-entry-integer_bit_shift_operator_left" }
 ,
 { category: "Reference", value: "right (integer bit shift operator)", url: "/language/operators#index-entry-integer_bit_shift_operator_right" }
+,
+{ category: "Reference", value: "Boolean logical AND operator", url: "/language/operators#index-entry-Boolean_logical_AND_operator" }
 ,
 { category: "Reference", value: "greatest common divisor operator", url: "/language/operators#index-entry-greatest_common_divisor_operator" }
 ,

@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_X__Temporal">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_X__Temporal">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/X::Temporal.pod6'">
@@ -102,8 +132,8 @@
 <g id="node1" class="node">
 <title>X::Temporal</title>
 <g id="a_node1"><a xlink:href="/type/X::Temporal" xlink:title="X::Temporal">
-<ellipse fill="none" stroke="#6666ff" cx="379.94" cy="-90" rx="64.19" ry="18"/>
-<text text-anchor="middle" x="379.94" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Temporal</text>
+<ellipse fill="none" stroke="#6666ff" cx="394.74" cy="-90" rx="64.19" ry="18"/>
+<text text-anchor="middle" x="394.74" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">X::Temporal</text>
 </a>
 </g>
 </g>
@@ -111,23 +141,23 @@
 <g id="node4" class="node">
 <title>Exception</title>
 <g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
-<ellipse fill="none" stroke="#000000" cx="425.94" cy="-162" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="425.94" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
+<ellipse fill="none" stroke="#000000" cx="440.74" cy="-162" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="440.74" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
 </a>
 </g>
 </g>
 <!-- X::Temporal&#45;&gt;Exception -->
 <g id="edge1" class="edge">
 <title>X::Temporal&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M391.07,-107.95C396.55,-116.29 403.27,-126.51 409.34,-135.75"/>
-<polygon fill="#000000" stroke="#000000" points="406.49,-137.78 414.91,-144.21 412.34,-133.93 406.49,-137.78"/>
+<path fill="none" stroke="#000000" d="M405.87,-107.95C411.35,-116.29 418.07,-126.51 424.14,-135.75"/>
+<polygon fill="#000000" stroke="#000000" points="421.29,-137.78 429.7,-144.21 427.14,-133.93 421.29,-137.78"/>
 </g>
 <!-- Mu -->
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="425.94" cy="-306" rx="27" ry="18"/>
-<text text-anchor="middle" x="425.94" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="440.74" cy="-306" rx="27" ry="18"/>
+<text text-anchor="middle" x="440.74" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -135,85 +165,85 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="425.94" cy="-234" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="425.94" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="440.74" cy="-234" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="440.74" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
 <g id="edge2" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M425.94,-252.3C425.94,-260.02 425.94,-269.29 425.94,-277.89"/>
-<polygon fill="#000000" stroke="#000000" points="422.44,-277.9 425.94,-287.9 429.44,-277.9 422.44,-277.9"/>
+<path fill="none" stroke="#000000" d="M440.74,-252.3C440.74,-260.02 440.74,-269.29 440.74,-277.89"/>
+<polygon fill="#000000" stroke="#000000" points="437.24,-277.9 440.74,-287.9 444.24,-277.9 437.24,-277.9"/>
 </g>
 <!-- Exception&#45;&gt;Any -->
 <g id="edge3" class="edge">
 <title>Exception&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M425.94,-180.3C425.94,-188.02 425.94,-197.29 425.94,-205.89"/>
-<polygon fill="#000000" stroke="#000000" points="422.44,-205.9 425.94,-215.9 429.44,-205.9 422.44,-205.9"/>
+<path fill="none" stroke="#000000" d="M440.74,-180.3C440.74,-188.02 440.74,-197.29 440.74,-205.89"/>
+<polygon fill="#000000" stroke="#000000" points="437.24,-205.9 440.74,-215.9 444.24,-205.9 437.24,-205.9"/>
 </g>
-<!-- X::Temporal::InvalidFormat -->
+<!-- X::DateTime::TimezoneClash -->
 <g id="node5" class="node">
-<title>X::Temporal::InvalidFormat</title>
-<g id="a_node5"><a xlink:href="/type/X::Temporal::InvalidFormat" xlink:title="X::Temporal::InvalidFormat">
-<ellipse fill="none" stroke="#000000" cx="131.94" cy="-18" rx="131.88" ry="18"/>
-<text text-anchor="middle" x="131.94" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::Temporal::InvalidFormat</text>
+<title>X::DateTime::TimezoneClash</title>
+<g id="a_node5"><a xlink:href="/type/X::DateTime::TimezoneClash" xlink:title="X::DateTime::TimezoneClash">
+<ellipse fill="none" stroke="#000000" cx="139.74" cy="-18" rx="139.98" ry="18"/>
+<text text-anchor="middle" x="139.74" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::DateTime::TimezoneClash</text>
 </a>
 </g>
 </g>
-<!-- X::Temporal::InvalidFormat&#45;&gt;X::Temporal -->
+<!-- X::DateTime::TimezoneClash&#45;&gt;X::Temporal -->
 <g id="edge7" class="edge">
-<title>X::Temporal::InvalidFormat&#45;&gt;X::Temporal</title>
-<path fill="none" stroke="#6666ff" d="M186.67,-34.45C228.18,-46.16 284.94,-62.19 326.2,-73.83"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="325.5,-77.27 336.08,-76.62 327.4,-70.53 325.5,-77.27"/>
+<title>X::DateTime::TimezoneClash&#45;&gt;X::Temporal</title>
+<path fill="none" stroke="#6666ff" d="M196.33,-34.54C239.39,-46.36 298.27,-62.52 340.69,-74.16"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="339.99,-77.6 350.56,-76.87 341.84,-70.85 339.99,-77.6"/>
 </g>
-<!-- X::Temporal::InvalidFormat&#45;&gt;Exception -->
+<!-- X::DateTime::TimezoneClash&#45;&gt;Exception -->
 <g id="edge4" class="edge">
-<title>X::Temporal::InvalidFormat&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M164.44,-35.53C215.05,-61.27 306.94,-108 306.94,-108 306.94,-108 350.78,-127.53 385.25,-142.88"/>
-<polygon fill="#000000" stroke="#000000" points="384.11,-146.2 394.67,-147.07 386.96,-139.81 384.11,-146.2"/>
+<title>X::DateTime::TimezoneClash&#45;&gt;Exception</title>
+<path fill="none" stroke="#000000" d="M173.54,-35.53C226.18,-61.27 321.74,-108 321.74,-108 321.74,-108 365.58,-127.53 400.04,-142.88"/>
+<polygon fill="#000000" stroke="#000000" points="398.91,-146.2 409.47,-147.07 401.76,-139.81 398.91,-146.2"/>
 </g>
 <!-- X::DateTime::InvalidDeltaUnit -->
 <g id="node6" class="node">
 <title>X::DateTime::InvalidDeltaUnit</title>
 <g id="a_node6"><a xlink:href="/type/X::DateTime::InvalidDeltaUnit" xlink:title="X::DateTime::InvalidDeltaUnit">
-<ellipse fill="none" stroke="#000000" cx="425.94" cy="-18" rx="143.77" ry="18"/>
-<text text-anchor="middle" x="425.94" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::DateTime::InvalidDeltaUnit</text>
+<ellipse fill="none" stroke="#000000" cx="440.74" cy="-18" rx="143.77" ry="18"/>
+<text text-anchor="middle" x="440.74" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::DateTime::InvalidDeltaUnit</text>
 </a>
 </g>
 </g>
 <!-- X::DateTime::InvalidDeltaUnit&#45;&gt;X::Temporal -->
 <g id="edge8" class="edge">
 <title>X::DateTime::InvalidDeltaUnit&#45;&gt;X::Temporal</title>
-<path fill="none" stroke="#6666ff" d="M414.57,-36.3C409.22,-44.44 402.73,-54.31 396.83,-63.3"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="393.75,-61.62 391.18,-71.9 399.6,-65.46 393.75,-61.62"/>
+<path fill="none" stroke="#6666ff" d="M429.37,-36.3C424.02,-44.44 417.53,-54.31 411.63,-63.3"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="408.54,-61.62 405.98,-71.9 414.39,-65.46 408.54,-61.62"/>
 </g>
 <!-- X::DateTime::InvalidDeltaUnit&#45;&gt;Exception -->
 <g id="edge5" class="edge">
 <title>X::DateTime::InvalidDeltaUnit&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M434.63,-36.06C442.52,-51.55 452.94,-72 452.94,-72 452.94,-72 452.94,-108 452.94,-108 452.94,-108 446.06,-121.5 439.25,-134.87"/>
-<polygon fill="#000000" stroke="#000000" points="436.05,-133.44 434.63,-143.94 442.29,-136.62 436.05,-133.44"/>
+<path fill="none" stroke="#000000" d="M449.43,-36.06C457.32,-51.55 467.74,-72 467.74,-72 467.74,-72 467.74,-108 467.74,-108 467.74,-108 460.86,-121.5 454.05,-134.87"/>
+<polygon fill="#000000" stroke="#000000" points="450.85,-133.44 449.43,-143.94 457.09,-136.62 450.85,-133.44"/>
 </g>
-<!-- X::DateTime::TimezoneClash -->
+<!-- X::Temporal::InvalidFormat -->
 <g id="node7" class="node">
-<title>X::DateTime::TimezoneClash</title>
-<g id="a_node7"><a xlink:href="/type/X::DateTime::TimezoneClash" xlink:title="X::DateTime::TimezoneClash">
-<ellipse fill="none" stroke="#000000" cx="726.94" cy="-18" rx="139.98" ry="18"/>
-<text text-anchor="middle" x="726.94" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::DateTime::TimezoneClash</text>
+<title>X::Temporal::InvalidFormat</title>
+<g id="a_node7"><a xlink:href="/type/X::Temporal::InvalidFormat" xlink:title="X::Temporal::InvalidFormat">
+<ellipse fill="none" stroke="#000000" cx="734.74" cy="-18" rx="131.88" ry="18"/>
+<text text-anchor="middle" x="734.74" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::Temporal::InvalidFormat</text>
 </a>
 </g>
 </g>
-<!-- X::DateTime::TimezoneClash&#45;&gt;X::Temporal -->
+<!-- X::Temporal::InvalidFormat&#45;&gt;X::Temporal -->
 <g id="edge9" class="edge">
-<title>X::DateTime::TimezoneClash&#45;&gt;X::Temporal</title>
-<path fill="none" stroke="#6666ff" d="M655.04,-33.5C591.61,-46.3 500.21,-64.74 440.45,-76.79"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="439.52,-73.41 430.41,-78.82 440.91,-80.27 439.52,-73.41"/>
+<title>X::Temporal::InvalidFormat&#45;&gt;X::Temporal</title>
+<path fill="none" stroke="#6666ff" d="M665.11,-33.33C603.22,-46.08 513.67,-64.51 454.85,-76.62"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="454.05,-73.22 444.96,-78.66 455.46,-80.07 454.05,-73.22"/>
 </g>
-<!-- X::DateTime::TimezoneClash&#45;&gt;Exception -->
+<!-- X::Temporal::InvalidFormat&#45;&gt;Exception -->
 <g id="edge6" class="edge">
-<title>X::DateTime::TimezoneClash&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M691.82,-35.57C635.41,-62.18 524.95,-114.29 465.72,-142.23"/>
-<polygon fill="#000000" stroke="#000000" points="463.87,-139.24 456.32,-146.67 466.85,-145.57 463.87,-139.24"/>
+<title>X::Temporal::InvalidFormat&#45;&gt;Exception</title>
+<path fill="none" stroke="#000000" d="M700.72,-35.43C645.74,-61.98 537.66,-114.19 479.68,-142.19"/>
+<polygon fill="#000000" stroke="#000000" points="477.96,-139.13 470.48,-146.64 481,-145.44 477.96,-139.13"/>
 </g>
 </g>
 </svg>
@@ -283,8 +313,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

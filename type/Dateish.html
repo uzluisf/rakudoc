@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_Dateish">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_Dateish">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/Dateish.pod6'">
@@ -151,17 +181,17 @@
 <h1 id="Type_Graph"><a class="u" href="#___top" title="go to top of document">Type Graph</a></h1>
 <figure>
   <figcaption>Type relations for <code>Dateish</code></figcaption>
-  <svg width="198pt" height="188pt"
- viewBox="0.00 0.00 197.79 188.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="205pt" height="188pt"
+ viewBox="0.00 0.00 204.79 188.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 193.79,-184 193.79,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 200.79,-184 200.79,4 -4,4"/>
 <!-- Dateish -->
 <g id="node1" class="node">
 <title>Dateish</title>
 <g id="a_node1"><a xlink:href="/type/Dateish" xlink:title="Dateish">
-<ellipse fill="none" stroke="#6666ff" cx="59.95" cy="-90" rx="44.69" ry="18"/>
-<text text-anchor="middle" x="59.95" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Dateish</text>
+<ellipse fill="none" stroke="#6666ff" cx="44.85" cy="-90" rx="44.69" ry="18"/>
+<text text-anchor="middle" x="44.85" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#6666ff">Dateish</text>
 </a>
 </g>
 </g>
@@ -169,8 +199,8 @@
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="153.95" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="153.95" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="138.85" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="138.85" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -178,58 +208,58 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="153.95" cy="-90" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="153.95" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="138.85" cy="-90" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="138.85" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
 <g id="edge1" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M153.95,-108.3C153.95,-116.02 153.95,-125.29 153.95,-133.89"/>
-<polygon fill="#000000" stroke="#000000" points="150.45,-133.9 153.95,-143.9 157.45,-133.9 150.45,-133.9"/>
-</g>
-<!-- DateTime -->
-<g id="node4" class="node">
-<title>DateTime</title>
-<g id="a_node4"><a xlink:href="/type/DateTime" xlink:title="DateTime">
-<ellipse fill="none" stroke="#000000" cx="53.95" cy="-18" rx="53.89" ry="18"/>
-<text text-anchor="middle" x="53.95" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">DateTime</text>
-</a>
-</g>
-</g>
-<!-- DateTime&#45;&gt;Dateish -->
-<g id="edge4" class="edge">
-<title>DateTime&#45;&gt;Dateish</title>
-<path fill="none" stroke="#6666ff" d="M55.43,-36.3C56.09,-44.02 56.88,-53.29 57.62,-61.89"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="54.14,-62.23 58.48,-71.9 61.11,-61.63 54.14,-62.23"/>
-</g>
-<!-- DateTime&#45;&gt;Any -->
-<g id="edge2" class="edge">
-<title>DateTime&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M76.14,-34.54C91.19,-45.07 111.17,-59.06 127.11,-70.22"/>
-<polygon fill="#000000" stroke="#000000" points="125.3,-73.22 135.5,-76.09 129.31,-67.49 125.3,-73.22"/>
+<path fill="none" stroke="#000000" d="M138.85,-108.3C138.85,-116.02 138.85,-125.29 138.85,-133.89"/>
+<polygon fill="#000000" stroke="#000000" points="135.35,-133.9 138.85,-143.9 142.35,-133.9 135.35,-133.9"/>
 </g>
 <!-- Date -->
-<g id="node5" class="node">
+<g id="node4" class="node">
 <title>Date</title>
-<g id="a_node5"><a xlink:href="/type/Date" xlink:title="Date">
-<ellipse fill="none" stroke="#000000" cx="157.95" cy="-18" rx="31.7" ry="18"/>
-<text text-anchor="middle" x="157.95" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Date</text>
+<g id="a_node4"><a xlink:href="/type/Date" xlink:title="Date">
+<ellipse fill="none" stroke="#000000" cx="38.85" cy="-18" rx="31.7" ry="18"/>
+<text text-anchor="middle" x="38.85" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">Date</text>
 </a>
 </g>
 </g>
 <!-- Date&#45;&gt;Dateish -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>Date&#45;&gt;Dateish</title>
-<path fill="none" stroke="#6666ff" d="M139.05,-32.5C125.06,-42.49 105.74,-56.29 89.69,-67.75"/>
-<polygon fill="#6666ff" stroke="#6666ff" points="87.27,-65.18 81.16,-73.84 91.34,-70.88 87.27,-65.18"/>
+<path fill="none" stroke="#6666ff" d="M40.33,-36.3C40.99,-44.02 41.78,-53.29 42.52,-61.89"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="39.04,-62.23 43.38,-71.9 46.01,-61.63 39.04,-62.23"/>
 </g>
 <!-- Date&#45;&gt;Any -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>Date&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M156.96,-36.3C156.52,-44.02 155.99,-53.29 155.49,-61.89"/>
-<polygon fill="#000000" stroke="#000000" points="152,-61.71 154.92,-71.9 158.99,-62.11 152,-61.71"/>
+<path fill="none" stroke="#000000" d="M58.13,-32.5C73.4,-43.19 94.92,-58.25 111.89,-70.13"/>
+<polygon fill="#000000" stroke="#000000" points="110.1,-73.15 120.3,-76.02 114.12,-67.42 110.1,-73.15"/>
+</g>
+<!-- DateTime -->
+<g id="node5" class="node">
+<title>DateTime</title>
+<g id="a_node5"><a xlink:href="/type/DateTime" xlink:title="DateTime">
+<ellipse fill="none" stroke="#000000" cx="142.85" cy="-18" rx="53.89" ry="18"/>
+<text text-anchor="middle" x="142.85" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">DateTime</text>
+</a>
+</g>
+</g>
+<!-- DateTime&#45;&gt;Dateish -->
+<g id="edge5" class="edge">
+<title>DateTime&#45;&gt;Dateish</title>
+<path fill="none" stroke="#6666ff" d="M121.1,-34.54C107.33,-44.37 89.36,-57.2 74.32,-67.94"/>
+<polygon fill="#6666ff" stroke="#6666ff" points="71.96,-65.33 65.86,-73.99 76.03,-71.02 71.96,-65.33"/>
+</g>
+<!-- DateTime&#45;&gt;Any -->
+<g id="edge3" class="edge">
+<title>DateTime&#45;&gt;Any</title>
+<path fill="none" stroke="#000000" d="M141.86,-36.3C141.42,-44.02 140.89,-53.29 140.4,-61.89"/>
+<polygon fill="#000000" stroke="#000000" points="136.9,-61.71 139.82,-71.9 143.89,-62.11 136.9,-61.71"/>
 </g>
 </g>
 </svg>
@@ -265,8 +295,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

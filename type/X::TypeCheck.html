@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item " href="/language.html"> Language </a> <a class="menu-item selected darker-green" href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div><div class="menu-items darker-green"><a class="menu-item" href="/type.html">All</a><a class="menu-item" href="/type-basic.html"> Basic </a> <a class="menu-item" href="/type-composite.html"> Composite </a> <a class="menu-item" href="/type-domain-specific.html"> Domain-specific </a> <a class="menu-item" href="/type-exception.html"> Exceptions </a> </div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__type_X__TypeCheck">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__type_X__TypeCheck">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Type/X::TypeCheck.pod6'">
@@ -105,16 +135,16 @@
 <figure>
   <figcaption>Type relations for <code>X::TypeCheck</code></figcaption>
   <svg width="976pt" height="332pt"
- viewBox="0.00 0.00 975.73 332.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 975.93 332.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
 <title>perl6&#45;type&#45;graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 971.73,-328 971.73,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 971.93,-328 971.93,4 -4,4"/>
 <!-- X::TypeCheck -->
 <g id="node1" class="node">
 <title>X::TypeCheck</title>
 <g id="a_node1"><a xlink:href="/type/X::TypeCheck" xlink:title="X::TypeCheck">
-<ellipse fill="none" stroke="#000000" cx="462.44" cy="-90" rx="71.49" ry="18"/>
-<text text-anchor="middle" x="462.44" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck</text>
+<ellipse fill="none" stroke="#000000" cx="458.64" cy="-90" rx="71.49" ry="18"/>
+<text text-anchor="middle" x="458.64" y="-86.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck</text>
 </a>
 </g>
 </g>
@@ -122,23 +152,23 @@
 <g id="node4" class="node">
 <title>Exception</title>
 <g id="a_node4"><a xlink:href="/type/Exception" xlink:title="Exception">
-<ellipse fill="none" stroke="#000000" cx="462.44" cy="-162" rx="55.49" ry="18"/>
-<text text-anchor="middle" x="462.44" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
+<ellipse fill="none" stroke="#000000" cx="458.64" cy="-162" rx="55.49" ry="18"/>
+<text text-anchor="middle" x="458.64" y="-158.3" font-family="FreeSans" font-size="14.00" fill="#000000">Exception</text>
 </a>
 </g>
 </g>
 <!-- X::TypeCheck&#45;&gt;Exception -->
 <g id="edge1" class="edge">
 <title>X::TypeCheck&#45;&gt;Exception</title>
-<path fill="none" stroke="#000000" d="M462.44,-108.3C462.44,-116.02 462.44,-125.29 462.44,-133.89"/>
-<polygon fill="#000000" stroke="#000000" points="458.94,-133.9 462.44,-143.9 465.94,-133.9 458.94,-133.9"/>
+<path fill="none" stroke="#000000" d="M458.64,-108.3C458.64,-116.02 458.64,-125.29 458.64,-133.89"/>
+<polygon fill="#000000" stroke="#000000" points="455.14,-133.9 458.64,-143.9 462.14,-133.9 455.14,-133.9"/>
 </g>
 <!-- Mu -->
 <g id="node2" class="node">
 <title>Mu</title>
 <g id="a_node2"><a xlink:href="/type/Mu" xlink:title="Mu">
-<ellipse fill="none" stroke="#000000" cx="462.44" cy="-306" rx="27" ry="18"/>
-<text text-anchor="middle" x="462.44" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
+<ellipse fill="none" stroke="#000000" cx="458.64" cy="-306" rx="27" ry="18"/>
+<text text-anchor="middle" x="458.64" y="-302.3" font-family="FreeSans" font-size="14.00" fill="#000000">Mu</text>
 </a>
 </g>
 </g>
@@ -146,82 +176,82 @@
 <g id="node3" class="node">
 <title>Any</title>
 <g id="a_node3"><a xlink:href="/type/Any" xlink:title="Any">
-<ellipse fill="none" stroke="#000000" cx="462.44" cy="-234" rx="28.7" ry="18"/>
-<text text-anchor="middle" x="462.44" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
+<ellipse fill="none" stroke="#000000" cx="458.64" cy="-234" rx="28.7" ry="18"/>
+<text text-anchor="middle" x="458.64" y="-230.3" font-family="FreeSans" font-size="14.00" fill="#000000">Any</text>
 </a>
 </g>
 </g>
 <!-- Any&#45;&gt;Mu -->
 <g id="edge2" class="edge">
 <title>Any&#45;&gt;Mu</title>
-<path fill="none" stroke="#000000" d="M462.44,-252.3C462.44,-260.02 462.44,-269.29 462.44,-277.89"/>
-<polygon fill="#000000" stroke="#000000" points="458.94,-277.9 462.44,-287.9 465.94,-277.9 458.94,-277.9"/>
+<path fill="none" stroke="#000000" d="M458.64,-252.3C458.64,-260.02 458.64,-269.29 458.64,-277.89"/>
+<polygon fill="#000000" stroke="#000000" points="455.14,-277.9 458.64,-287.9 462.14,-277.9 455.14,-277.9"/>
 </g>
 <!-- Exception&#45;&gt;Any -->
 <g id="edge3" class="edge">
 <title>Exception&#45;&gt;Any</title>
-<path fill="none" stroke="#000000" d="M462.44,-180.3C462.44,-188.02 462.44,-197.29 462.44,-205.89"/>
-<polygon fill="#000000" stroke="#000000" points="458.94,-205.9 462.44,-215.9 465.94,-205.9 458.94,-205.9"/>
-</g>
-<!-- X::TypeCheck::Binding -->
-<g id="node5" class="node">
-<title>X::TypeCheck::Binding</title>
-<g id="a_node5"><a xlink:href="/type/X::TypeCheck::Binding" xlink:title="X::TypeCheck::Binding">
-<ellipse fill="none" stroke="#000000" cx="112.44" cy="-18" rx="112.38" ry="18"/>
-<text text-anchor="middle" x="112.44" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Binding</text>
-</a>
-</g>
-</g>
-<!-- X::TypeCheck::Binding&#45;&gt;X::TypeCheck -->
-<g id="edge4" class="edge">
-<title>X::TypeCheck::Binding&#45;&gt;X::TypeCheck</title>
-<path fill="none" stroke="#000000" d="M179.92,-32.5C242.96,-45.1 336.38,-63.79 398.31,-76.17"/>
-<polygon fill="#000000" stroke="#000000" points="397.86,-79.65 408.35,-78.18 399.23,-72.79 397.86,-79.65"/>
+<path fill="none" stroke="#000000" d="M458.64,-180.3C458.64,-188.02 458.64,-197.29 458.64,-205.89"/>
+<polygon fill="#000000" stroke="#000000" points="455.14,-205.9 458.64,-215.9 462.14,-205.9 455.14,-205.9"/>
 </g>
 <!-- X::TypeCheck::Splice -->
-<g id="node6" class="node">
+<g id="node5" class="node">
 <title>X::TypeCheck::Splice</title>
-<g id="a_node6"><a xlink:href="/type/X::TypeCheck::Splice" xlink:title="X::TypeCheck::Splice">
-<ellipse fill="none" stroke="#000000" cx="347.44" cy="-18" rx="104.78" ry="18"/>
-<text text-anchor="middle" x="347.44" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Splice</text>
+<g id="a_node5"><a xlink:href="/type/X::TypeCheck::Splice" xlink:title="X::TypeCheck::Splice">
+<ellipse fill="none" stroke="#000000" cx="104.64" cy="-18" rx="104.78" ry="18"/>
+<text text-anchor="middle" x="104.64" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Splice</text>
 </a>
 </g>
 </g>
 <!-- X::TypeCheck::Splice&#45;&gt;X::TypeCheck -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>X::TypeCheck::Splice&#45;&gt;X::TypeCheck</title>
-<path fill="none" stroke="#000000" d="M374.4,-35.41C390.34,-45.12 410.7,-57.51 427.82,-67.93"/>
-<polygon fill="#000000" stroke="#000000" points="426.08,-70.96 436.44,-73.17 429.72,-64.98 426.08,-70.96"/>
+<path fill="none" stroke="#000000" d="M170.4,-32C234.36,-44.65 330.91,-63.74 394.36,-76.29"/>
+<polygon fill="#000000" stroke="#000000" points="393.76,-79.74 404.25,-78.25 395.12,-72.87 393.76,-79.74"/>
+</g>
+<!-- X::TypeCheck::Binding -->
+<g id="node6" class="node">
+<title>X::TypeCheck::Binding</title>
+<g id="a_node6"><a xlink:href="/type/X::TypeCheck::Binding" xlink:title="X::TypeCheck::Binding">
+<ellipse fill="none" stroke="#000000" cx="339.64" cy="-18" rx="112.38" ry="18"/>
+<text text-anchor="middle" x="339.64" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Binding</text>
+</a>
+</g>
+</g>
+<!-- X::TypeCheck::Binding&#45;&gt;X::TypeCheck -->
+<g id="edge5" class="edge">
+<title>X::TypeCheck::Binding&#45;&gt;X::TypeCheck</title>
+<path fill="none" stroke="#000000" d="M367.84,-35.59C384.35,-45.3 405.34,-57.65 422.99,-68.03"/>
+<polygon fill="#000000" stroke="#000000" points="421.47,-71.2 431.87,-73.25 425.02,-65.16 421.47,-71.2"/>
 </g>
 <!-- X::TypeCheck::Return -->
 <g id="node7" class="node">
 <title>X::TypeCheck::Return</title>
 <g id="a_node7"><a xlink:href="/type/X::TypeCheck::Return" xlink:title="X::TypeCheck::Return">
-<ellipse fill="none" stroke="#000000" cx="578.44" cy="-18" rx="108.58" ry="18"/>
-<text text-anchor="middle" x="578.44" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Return</text>
+<ellipse fill="none" stroke="#000000" cx="578.64" cy="-18" rx="108.58" ry="18"/>
+<text text-anchor="middle" x="578.64" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Return</text>
 </a>
 </g>
 </g>
 <!-- X::TypeCheck::Return&#45;&gt;X::TypeCheck -->
 <g id="edge6" class="edge">
 <title>X::TypeCheck::Return&#45;&gt;X::TypeCheck</title>
-<path fill="none" stroke="#000000" d="M550.95,-35.59C534.97,-45.23 514.68,-57.47 497.56,-67.81"/>
-<polygon fill="#000000" stroke="#000000" points="495.69,-64.85 488.93,-73.01 499.3,-70.84 495.69,-64.85"/>
+<path fill="none" stroke="#000000" d="M550.51,-35.41C533.87,-45.12 512.63,-57.51 494.77,-67.93"/>
+<polygon fill="#000000" stroke="#000000" points="492.65,-65.11 485.77,-73.17 496.17,-71.16 492.65,-65.11"/>
 </g>
 <!-- X::TypeCheck::Assignment -->
 <g id="node8" class="node">
 <title>X::TypeCheck::Assignment</title>
 <g id="a_node8"><a xlink:href="/type/X::TypeCheck::Assignment" xlink:title="X::TypeCheck::Assignment">
-<ellipse fill="none" stroke="#000000" cx="836.44" cy="-18" rx="131.08" ry="18"/>
-<text text-anchor="middle" x="836.44" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Assignment</text>
+<ellipse fill="none" stroke="#000000" cx="836.64" cy="-18" rx="131.08" ry="18"/>
+<text text-anchor="middle" x="836.64" y="-14.3" font-family="FreeSans" font-size="14.00" fill="#000000">X::TypeCheck::Assignment</text>
 </a>
 </g>
 </g>
 <!-- X::TypeCheck::Assignment&#45;&gt;X::TypeCheck -->
 <g id="edge7" class="edge">
 <title>X::TypeCheck::Assignment&#45;&gt;X::TypeCheck</title>
-<path fill="none" stroke="#000000" d="M762.1,-32.91C693.86,-45.69 593.69,-64.43 528.28,-76.68"/>
-<polygon fill="#000000" stroke="#000000" points="527.27,-73.31 518.08,-78.59 528.56,-80.19 527.27,-73.31"/>
+<path fill="none" stroke="#000000" d="M761.96,-32.83C692.69,-45.66 590.59,-64.57 524.35,-76.83"/>
+<polygon fill="#000000" stroke="#000000" points="523.63,-73.4 514.44,-78.67 524.91,-80.29 523.63,-73.4"/>
 </g>
 </g>
 </svg>
@@ -291,8 +321,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {

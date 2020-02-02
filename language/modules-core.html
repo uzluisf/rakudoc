@@ -17,42 +17,72 @@
         
         <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/app.css?v=7" media="screen" title="default" />
+<link rel="stylesheet" type="text/css" href="/css/app.css?v=7" media="screen" title="default" />
 <noscript> <style> #search { visibility: hidden; } </style> </noscript>
-<base href="https://uzluisf.github.io/rakudoc/">
 
     </head>
     <body class="pod">
     <div id="___top"></div>
-    <div id="top" class="pretty-box white">
-    <header class="grid">
-        <div id="logo">
-            <a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia"/></a>
-        </div>
-   
-        <div class="menu">
-          <div class="menu-items dark-green"><a class='menu-item darker-green' href='https://raku.org'><strong>Raku homepage</strong></a>  <a class="menu-item selected darker-green" href="/language.html"> Language </a> <a class="menu-item " href="/type.html"> Types </a> <a class="menu-item " href="/routine.html"> Routines </a> <a class="menu-item " href="/programs.html"> Programs </a> <a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></div>
-        </div>
-
-        <div id="search" class="ui-widget">
-            <div class="white">
-              <input
-                placeholder="Loading..."
-                id="query"
-                accesskey="f"
-                title="Enter term to search for (hit Esc to focus)"
-              />
-            </div>
-            <p id="not-found-message">
-              Not in Index (<a href="" id="try-web-search">try site search</a>)
-            </p>
-       </div>
-
-    </div>
+    <header id="header">
+<div id="logo" class="menuUp">
+	<a href="/"><img src="/images/Camelia.svg" alt="»ö«" id="camelia">
+	<div id="navToggle"><a href="#">Menu</a></div>
 </div>
-<!-- please make sure these two CAPITALIZED variables stay there -->
 
-<div id="content" class="pretty-box white content__language_modules_core">
+<nav class="menu">
+  <ul class="menu-items">
+      <li><a class='menu-item darker-green' href='#'><strong>Raku documentation</strong></a></li>
+      
+      <li><a class="menu-item " href="/language.html"> Language </a></li>
+      
+      <li><a class="menu-item " href="/type.html"> Types <span class="toggle">Expand</span><span class="caret"></span></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/type.html">All</a></li>
+      		<li><a class="menu-item" href="/type-basic.html">Basic </a></li>
+      		<li><a class="menu-item" href="/type-composite.html">Composite</a></li>
+      		<li><a class="menu-item" href="/type-domain-specific.html">Domain-specific</a></li>
+      		<li><a class="menu-item" href="/type-exception.html">Exceptions</a></li>
+      		</ul>
+      	</nav>
+      </li>
+      
+      <li><a class="menu-item " href="/routine.html"> Routines <span class="toggle">Expand</span><span class="caret"></a>
+      	<nav>
+      		<ul>
+      		<li><a class="menu-item" href="/routine.html">All</a></li>
+      		<li><a class="menu-item" href="/routine-sub.html"> Sub </a></li>
+      		<li><a class="menu-item" href="/routine-method.html"> Method </a></li>
+      		<li><a class="menu-item" href="/routine-term.html"> Term </a></li>
+      		<li><a class="menu-item" href="/routine-operator.html"> Operator </a> </li>
+            <li><a class="menu-item" href="/routine-trait.html"> Trait </a></li>
+            <li><a class="menu-item" href="/routine-submethod.html"> Submethod </a></li>
+      		<ul>
+      	</nav>                  
+      </li>
+      
+      <li><a class="menu-item " href="/programs.html"> Programs </a></li>
+      
+      <li><a class="menu-item " href="https://webchat.freenode.net/?channels=#raku"> Chat with us </a></li>
+   </ul>
+</nav>
+
+<div id="search" class="ui-widget">
+	<div class="green">
+	  <input
+		placeholder="Loading..."
+		id="query"
+		accesskey="f"
+		title="Enter term to search for (hit Esc to focus)"
+	  />
+	</div>
+	<p id="not-found-message">Not in Index (<a href="" id="try-web-search">try site search</a>)</p>
+</div>
+
+</header>
+
+<!-- please make sure these two CAPITALIZED variables stay there -->
+<div id="content" class="pretty-box yellow content__language_modules_core">
   
       <div align="right">
         <button title="Edit this page"  class="pencil" onclick="location='https://github.com/perl6/doc/edit/master/doc/Language/modules-core.pod6'">
@@ -76,7 +106,7 @@
    <tr class="toc-level-2"><td class="toc-number">0.1</td><td class="toc-text"><a href="#CompUnit::*_modules_and_roles"><code class="pod-code-inline">CompUnit::*</code> modules and roles </a></td></tr>
       <tr class="toc-level-2"><td class="toc-number">0.2</td><td class="toc-text"><a href="#NativeCall_modules"><code class="pod-code-inline">NativeCall</code> modules</a></td></tr>
               <tr class="toc-level-2"><td class="toc-number">0.3</td><td class="toc-text"><a href="#Other_modules">Other modules</a></td></tr>
-        
+         
 </table>
 </nav>
 
@@ -84,29 +114,28 @@
     <p>The Rakudo implementation has a few modules included you may want to use. The following is a list of them, along with links to their source code.</p>
 <h2 id="CompUnit::*_modules_and_roles"><a class="u" href="#___top" title="go to top of document"><code>CompUnit::*</code> modules and roles <a name="index-entry-CompUnit_(Rakudo_classes)"></a></a></h2>
 <p>These modules are mostly used by distribution build tools, and are not intended to be used (at least until version 6.c) by the final user.</p>
-<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/CompUnit/Repository/Staging.pm6"><code>CompUnit::Repository::Staging</code></a>.</p>
+<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/CompUnit/Repository/Staging.rakumod"><code>CompUnit::Repository::Staging</code></a>.</p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/src/core/CompUnit/RepositoryRegistry.pm6"><code>CompUnit::Repository::(FileSystem|Installation|AbsolutePath|Unknown|NQP|Perl6|RepositoryRegistry)</code></a>.</p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/src/core/CompUnit/RepositoryRegistry.rakumod"><code>CompUnit::Repository::(FileSystem|Installation|AbsolutePath|Unknown|NQP|Perl6|RepositoryRegistry)</code></a>.</p>
 </li>
 </ul>
 <h2 id="NativeCall_modules"><a class="u" href="#___top" title="go to top of document"><code>NativeCall</code> modules</a></h2>
-<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall.pm6"><code>NativeCall</code></a> Native Calling Interface (<a href="/language/nativecall.html">docs</a>)</p>
+<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall.rakumod"><code>NativeCall</code></a> Native Calling Interface (<a href="/language/nativecall.html">docs</a>)</p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Types.pm6"><code>NativeCall::Types</code></a> Used by <code>NativeCall</code></p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Types.rakumod"><code>NativeCall::Types</code></a> Used by <code>NativeCall</code></p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Compiler/GNU.pm6"><code>NativeCall::Compiler::GNU</code></a> Used by <code>NativeCall</code></p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Compiler/GNU.rakumod"><code>NativeCall::Compiler::GNU</code></a> Used by <code>NativeCall</code></p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Compiler/MSVC.pm6"><code>NativeCall::Compiler::MSVC</code></a> Used by <code>NativeCall</code></p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/NativeCall/Compiler/MSVC.rakumod"><code>NativeCall::Compiler::MSVC</code></a> Used by <code>NativeCall</code></p>
 </li>
 </ul>
 <h2 id="Other_modules"><a class="u" href="#___top" title="go to top of document">Other modules</a></h2>
-<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/Pod/To/Text.pm6"><code>Pod::To::Text</code></a> Used by several external modules</p>
+<p>≈=item <a href="https://github.com/rakudo/rakudo/blob/master/lib/Pod/To/Text.rakumod"><code>Pod::To::Text</code></a> Used by several external modules</p>
+<ul><li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/Test.rakumod"><code>Test</code></a> Test routines (<a href="/language/testing">docs</a>)</p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/Test.pm6"><code>Test</code></a> Test routines (<a href="/language/testing">docs</a>)</p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/experimental.rakumod"><code>experimental</code></a></p>
 </li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/experimental.pm6"><code>experimental</code></a></p>
-</li>
-<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/newline.pm6"><code>newline</code></a></p>
+<li><p><a href="https://github.com/rakudo/rakudo/blob/master/lib/newline.rakumod"><code>newline</code></a></p>
 </li>
 </ul>
 
@@ -131,8 +160,8 @@
   </p>
 </footer>
 
-<script type="text/javascript" src="js/app.js?v=1"></script>
-<script type="text/javascript" src="js/app.js?v=1"js/search.js?v=3"></script>
+<script type="text/javascript" src="/js/app.js?v=1"></script>
+<script type="text/javascript" src="/js/search.js?v=3"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (!location.hash || location.hash === "#___top") {
